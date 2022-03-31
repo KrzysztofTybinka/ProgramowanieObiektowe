@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\krzysztof.tybinka\\source\\repos\\ProgramowanieObiektowe\\lab_2_zadanie\\lab_2_zadanie\\lab_2_zadanie.csproj",
-      "projectName": "lab_2_zadanie",
-      "projectPath": "D:\\Users\\krzysztof.tybinka\\source\\repos\\ProgramowanieObiektowe\\lab_2_zadanie\\lab_2_zadanie\\lab_2_zadanie.csproj",
+      "projectUniqueName": "D:\\Users\\krzysztof.tybinka\\source\\repos\\ProgramowanieObiektowe\\Lab03\\Lab03\\Lab03.csproj",
+      "projectName": "Lab03",
+      "projectPath": "D:\\Users\\krzysztof.tybinka\\source\\repos\\ProgramowanieObiektowe\\Lab03\\Lab03\\Lab03.csproj",
       "packagesPath": "D:\\Users\\krzysztof.tybinka\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\krzysztof.tybinka\\source\\repos\\ProgramowanieObiektowe\\lab_2_zadanie\\lab_2_zadanie\\obj\\",
+      "outputPath": "D:\\Users\\krzysztof.tybinka\\source\\repos\\ProgramowanieObiektowe\\Lab03\\Lab03\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

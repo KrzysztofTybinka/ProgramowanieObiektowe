@@ -6,5 +6,5 @@ build_property.ProjectTypeGuids =
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
-build_property.RootNamespace = lab_2_zadanie
-build_property.ProjectDir = D:\Users\krzysztof.tybinka\source\repos\ProgramowanieObiektowe\lab_2_zadanie\lab_2_zadanie\
+build_property.RootNamespace = Lab03
+build_property.ProjectDir = D:\Users\krzysztof.tybinka\source\repos\ProgramowanieObiektowe\Lab03\Lab03\
