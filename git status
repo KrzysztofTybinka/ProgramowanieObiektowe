@@ -1,0 +1,79 @@
+[1mdiff --cc lab_2_zadanie/.vs/lab_2_zadanie/DesignTimeBuild/.dtbcache.v2[m
+[1mindex 2406a24,a7a3dc1..0000000[m
+Binary files differ
+[1mdiff --cc lab_2_zadanie/.vs/lab_2_zadanie/v16/.suo[m
+[1mindex d6b66b8,55f89f9..0000000[m
+Binary files differ
+[1mdiff --git a/Lab03/.vs/Lab03/v16/.suo b/Lab03/.vs/Lab03/v16/.suo[m
+[1mindex 37847f8..03acb42 100644[m
+Binary files a/Lab03/.vs/Lab03/v16/.suo and b/Lab03/.vs/Lab03/v16/.suo differ
+[1mdiff --git a/Lab03/.vs/Lab03/v16/TestStore/0/testlog.manifest b/Lab03/.vs/Lab03/v16/TestStore/0/testlog.manifest[m
+[1mindex e69de29..e92ede2 100644[m
+Binary files a/Lab03/.vs/Lab03/v16/TestStore/0/testlog.manifest and b/Lab03/.vs/Lab03/v16/TestStore/0/testlog.manifest differ
+[1mdiff --git a/Lab03/Lab03/ILogger.cs b/Lab03/Lab03/ILogger.cs[m
+[1mindex 976955f..e09a0a5 100644[m
+[1m--- a/Lab03/Lab03/ILogger.cs[m
+[1m+++ b/Lab03/Lab03/ILogger.cs[m
+[36m@@ -2,11 +2,11 @@[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[31m-using System.Threading.Tasks;[m
+ [m
+ namespace Lab03[m
+ {[m
+[31m-    interface ILogger[m
+[32m+[m[32m    public interface ILogger : IDisposable[m
+     {[m
+[32m+[m[32m        void Log(params String[] messages);[m
+     }[m
+ }[m
+[1mdiff --git a/Lab03/Lab03/Program.cs b/Lab03/Lab03/Program.cs[m
+[1mindex 3312c81..c7d65a3 100644[m
+[1m--- a/Lab03/Lab03/Program.cs[m
+[1m+++ b/Lab03/Lab03/Program.cs[m
+[36m@@ -6,7 +6,23 @@[m [mnamespace Lab03[m
+     {[m
+         static void Main(string[] args)[m
+         {[m
+[31m-            Console.WriteLine("Hello World!");[m
+[32m+[m[41m            [m
+[32m+[m[32m            ILogger[] loggers = new ILogger[][m
+[32m+[m[32m            {[m
+[32m+[m[32m                new ConsoleLogger(),[m
+[32m+[m[32m                new FileLogger("log.txt"),[m
+[32m+[m[32m                new SocketLogger("google.com", 80)[m
+[32m+[m[32m            };[m
+[32m+[m
+[32m+[m[32m            using (ILogger logger = new CommonLogger(loggers))[m
+[32m+[m[32m            {[m
+[32m+[m[32m                logger.Log("Example message 1 ...");[m
+[32m+[m[32m                logger.Log("Example message 2 ...");[m
+[32m+[m[32m                logger.Log("Example message 3 ...", "value 1", "value 2", "value 3");[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m
+[32m+[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/Lab03/Lab03/obj/Debug/net5.0/Lab03.GeneratedMSBuildEditorConfig.editorconfig b/Lab03/Lab03/obj/Debug/net5.0/Lab03.GeneratedMSBuildEditorConfig.editorconfig[m
+[1mindex b698eb4..a0fb3f2 100644[m
+[1m--- a/Lab03/Lab03/obj/Debug/net5.0/Lab03.GeneratedMSBuildEditorConfig.editorconfig[m
+[1m+++ b/Lab03/Lab03/obj/Debug/net5.0/Lab03.GeneratedMSBuildEditorConfig.editorconfig[m
+[36m@@ -7,4 +7,4 @@[m [mbuild_property.PublishSingleFile =[m
+ build_property.IncludeAllContentForSelfExtract = [m
+ build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows[m
+ build_property.RootNamespace = Lab03[m
+[31m-build_property.ProjectDir = D:\Users\krzysztof.tybinka\source\repos\ProgramowanieObiektowe\Lab03\Lab03\[m
+[32m+[m[32mbuild_property.ProjectDir = C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab03\Lab03\[m
+[1mdiff --git a/Lab03/Lab03/obj/Debug/net5.0/Lab03.assets.cache b/Lab03/Lab03/obj/Debug/net5.0/Lab03.assets.cache[m
+[1mindex f8e23b1..7024792 100644[m
+Binary files a/Lab03/Lab03/obj/Debug/net5.0/Lab03.assets.cache and b/Lab03/Lab03/obj/Debug/net5.0/Lab03.assets.cache differ
+[1mdiff --git a/Lab03/Lab03/obj/Debug/net5.0/Lab03.csproj.AssemblyReference.cache b/Lab03/Lab03/obj/Debug/net5.0/Lab03.csproj.AssemblyReference.cache[m
+[1mindex 1a2b021..f5e894a 100644[m
+Binary files a/Lab03/Lab03/obj/Debug/net5.0/Lab03.csproj.AssemblyReference.cache and b/Lab03/Lab03/obj/Debug/net5.0/Lab03.csproj.AssemblyReference.cache differ
+[1mdiff --git a/Lab03/Lab03/obj/Lab03.csproj.nuget.dgspec.json b/Lab03/Lab03/obj/Lab03.csproj.nuget.dgspec.json[m
+[1mindex 8880332..7d811bc 100644[m
+[1m--- a/Lab03/Lab03/obj/Lab03.csproj.nuget.dgspec.json[m
+[1m
