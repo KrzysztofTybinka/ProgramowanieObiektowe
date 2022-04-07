@@ -1,0 +1,16 @@
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\bin\Debug\net5.0\Lab04.exe
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\bin\Debug\net5.0\Lab04.deps.json
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\bin\Debug\net5.0\Lab04.runtimeconfig.json
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\bin\Debug\net5.0\Lab04.runtimeconfig.dev.json
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\bin\Debug\net5.0\Lab04.dll
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\bin\Debug\net5.0\ref\Lab04.dll
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\bin\Debug\net5.0\Lab04.pdb
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.csproj.AssemblyReference.cache
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.AssemblyInfoInputs.cache
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.AssemblyInfo.cs
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.csproj.CoreCompileInputs.cache
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.dll
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\ref\Lab04.dll
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.pdb
+C:\Users\ktybi\source\repos\ProgramowanieObiektowe\Lab04\Lab04\obj\Debug\net5.0\Lab04.genruntimeconfig.cache
