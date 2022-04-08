@@ -14,8 +14,7 @@ namespace Lab03
             
         public override void Dispose()
         {
-            base.writer.Dispose();
-            GC.SuppressFinalize(this);
+            // nothing here ...
         }
     }
 }
