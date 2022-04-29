@@ -8,7 +8,7 @@ namespace Lab05
         private List<T> list;
         private int length;
 
-        public int Length { get { return length; } }
+        public int Length { get { return this.list.Count; } }
 
         public delegate void ObservationListEventhandler(object sender, ChangedEventArgs<T> e);
 
