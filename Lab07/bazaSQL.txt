@@ -1,0 +1,26 @@
+USE DB
+GO
+
+CREATE TABLE UserEntity(
+Id BIGINT IDENTITY(1, 1) PRIMARY KEY,
+[Name] NVARCHAR(40) NOT NULL,
+[Role] VARCHAR(9) 
+CHECK ([ROLE] = 'ADMIN' OR [ROLE] = 'MODERATOR' OR [ROLE] = 'TEACHER' OR [ROLE] = 'STUDENT') NOT NULL,
+CreatedAt DATETIME NULL,
+RemovedAt DATETIME NULL,
+)
+
+GO
+
+INSERT INTO UserEntity VALUES ('Mike', 'ADMIN', '20210418', NULL),
+('Brandon', 'MODERATOR', '20200321', NULL),
+('Steven', 'TEACHER', '20210618', NULL),
+('Marques', 'STUDENT', '20220220', NULL),
+('Ann', 'STUDENT', '20210403', NULL),
+('Michell', 'STUDENT', '20190403', '20220104');
+
+GO
+
+select * from UserEntity
+go
+

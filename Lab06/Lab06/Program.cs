@@ -103,8 +103,8 @@ namespace Lab06
 
             //zad 16
             Console.WriteLine("16. People sorted by creation date: " + "\n" +
-                String.Join("\n", users.OrderBy(x => x.CreatedAt)
-                .Select(x => x.Name)) + "\n");
+                String.Join("\n", users.GroupBy(x => x.CreatedAt.Value.Year + '-' + x.CreatedAt.Value.Month)
+                .Select(x => x.Key)) + "\n");
 
             //zad 17
             Console.WriteLine("17. People that haven't been removed: " + "\n" +
