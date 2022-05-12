@@ -1,4 +1,7 @@
-USE DB
+CREATE DATABASE UserEntity
+GO
+
+USE UserEntity
 GO
 
 CREATE TABLE UserEntity(
