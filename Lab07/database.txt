@@ -1,6 +1,16 @@
 CREATE DATABASE UserEntity
 GO
 
+CREATE TABLE [dbo].[Users] (
+	[Id] BIGINT IDENTITY(1,1) NOT NULL,
+	[Name] NCHAR(50) NOT NULL,
+	[Role] NCHAR(20) NOT NULL,
+	[CreatedAt] DATETIME NOT NULL,
+	[RemovedAt] DATETIME,
+	PRIMARY KEY ([Id])
+);
+
+
 USE UserEntity
 GO
 

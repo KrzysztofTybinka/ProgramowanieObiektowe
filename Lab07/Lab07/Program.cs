@@ -9,6 +9,10 @@ namespace Lab07
 {
     internal class Program
     {
+        static string connectionString = @"Data Source=localhost;Initial Catalog=DB;Integrated Security=True";
+
+
+
         static void Main(string[] args)
         {
             var usersToAdd = new UserEntity()
@@ -29,7 +33,7 @@ namespace Lab07
 
         public static List<UserEntity> GetUsers()
         {
-            string connectionString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=UserEntity;Integrated Security=True";
+        //    string connectionString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=UserEntity;Integrated Security=True";
 
             using (DataContext dataContext = new DataContext(connectionString))
             {
@@ -43,12 +47,10 @@ namespace Lab07
 
         public static void AddUsers(List<UserEntity> usersToAdd)
         {
-            string connectionString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=UserEntity;Integrated Security=True";
-
-            using (DataContext dataContext = new DataContext(connectionString))
+                using (DataContext dataContext = new DataContext(connectionString))
             {
                 UserEntity user = new UserEntity() 
-                { Name ="Sophia", Role="STUDENT", CreatedAt= null, RemovedAt = null};
+                {Name ="Sophia", Role="STUDENT", CreatedAt= DateTime.Now, RemovedAt = null};
  
                 dataContext.GetTable<UserEntity>().InsertOnSubmit(user);
                 dataContext.SubmitChanges();                

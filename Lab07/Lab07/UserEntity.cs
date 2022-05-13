@@ -7,10 +7,25 @@ using System.Data.Linq.Mapping;
 
 namespace Lab07
 {
+    /*
+     
+CREATE TABLE [dbo].[UserEntity] (
+	[Id] BIGINT IDENTITY(1,1) NOT NULL,
+	[Name] NCHAR(50) NOT NULL,
+	[Role] NCHAR(20) NOT NULL,
+	[CreatedAt] DATETIME NOT NULL,
+	[RemovedAt] DATETIME,
+	PRIMARY KEY ([Id])
+);
+     
+     
+     */
+
+
     [Table(Name = "UserEntity")]
     public class UserEntity
     {
-        [Column(IsPrimaryKey = true, Name = "Id")]
+        [Column(IsPrimaryKey = true, Name = "Id", IsDbGenerated=true)]
         public long Id { get; set; }        
 
         [Column(Name = "Name")]
