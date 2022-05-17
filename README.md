@@ -1,7 +1,8 @@
-## Sklep
+## Harmonogram dla projektu Teatr
 
-# Wymagani
-1. dd
+Wizualne: 
+
+# 1. Okno logowania
     - d
         - rr
 2. 
