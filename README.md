@@ -18,14 +18,14 @@
 
 ## Techniczne:
 
-### 1. Baza danych
+#### 1. Baza danych
     1. Tabela Guests
     2. Tabela Performances
     3. Tabela Reservations
     4. Tabela Rooms
-### 2. ORM + operacje na bazie
+#### 2. ORM + operacje na bazie
     1. Dodawanie rekordów do bazy.
     2. Usuwanie rekordów z bazy.
-### 3. Walidacja
+#### 3. Walidacja
     1. Poprawności danych podczas logowania.
     2. Poprawności danych i sile hasła podczas rejestracji.
