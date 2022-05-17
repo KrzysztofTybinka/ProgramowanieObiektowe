@@ -4,11 +4,11 @@ Wizualne:
 
 ## 1. Okno logowania
     1. Pola do wprowadzenia danych oraz przyciski rejestracji, przypomnienia hasła i logowania.
-    2.Komunikat o poprawności wprowadzonych danych.
-## 2. Okno rejestracji
-    1. Pola do wprowadzenia danych oraz niezbędne przyciski.
-    2. Komunikaty o niepoprawności wprowadzonych danych, lub zbyt słabej sile hasła.
-    3. Możliwośc zalogowania się po rejestracji.
+    2. Komunikat o poprawności wprowadzonych danych.
+    ## 2. Okno rejestracji
+        1. Pola do wprowadzenia danych oraz niezbędne przyciski.
+        2. Komunikaty o niepoprawności wprowadzonych danych, lub zbyt słabej sile hasła.
+        3. Możliwośc zalogowania się po rejestracji.
 ## 3. Okno przypomnienia hasła    
     1. Pole do wprowadzenia adresu e-mail.
     2. Przycisk 'send'.
