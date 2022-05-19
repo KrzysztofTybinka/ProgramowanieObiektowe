@@ -1,10 +1,10 @@
-# Harmonogram dla projektu Teatr
+# Harmonogram dla projektu Obiket Sportowy
 
-Aplikacja Teatru xyz umożliwiajaca rezerwacje spektakli teatralnych dla klientów 
-posiadajacych okresowe bilety do teatru, upoważniające do uczęszczania na jeden 
-dowolny spektakl dziennie przez okres trwania biletu. Konto jest aktywne przez 
-czas trwania biletu, gdy aktywnośc konta upłynie, blokowana jest możliwość
-rezerwowania spektakli do ponownego aktywowania konta.
+Aplikacja obiektu sportowego umożliwiajaca rezerwacje stanowisk/kortów/boisk dla klientów 
+posiadajacych karnety, upoważniające do uczęszczania do klubu i rezerwacji 
+dowolnego stanowiska, kortu lub boiska raz dziennie przez okres trwania karnetu. 
+Konto jest aktywne przez czas trwania biletu, gdy ważność karnetu upłynie 
+blokowana jest możliwość rezerwacji do ponownego aktywowania karnetu.
 
 ## Wizualne: 
 
@@ -26,9 +26,10 @@ rezerwowania spektakli do ponownego aktywowania konta.
 
 #### 1. Baza danych
     1. Tabela Guests
-    2. Tabela Performances
-    3. Tabela Reservations
-    4. Tabela Rooms
+    2. Tabela Categories
+    3. Tabela Fields
+    4. Tabela ToReserve
+    5. tabela Reservations
 #### 2. ORM + operacje na bazie
     1. Dodawanie rekordów do bazy.
     2. Usuwanie rekordów z bazy.
