@@ -1,0 +1,53 @@
+CREATE DATABASE SportsComplex
+GO
+
+USE SportsComplex	
+GO
+
+CREATE TABLE Guests (
+	Guest_Id INT IDENTITY(1, 1) PRIMARY KEY
+	,[Name] NVARCHAR(25) NOT NULL
+	,Surname NVARCHAR(25) NULL
+	,Email NVARCHAR(40) NOT NULL
+	,[Login] VARCHAR(15) NOT NULL
+	,[Password] NVARCHAR(30) NOT NULL
+	,CHECK (Email LIKE '%@%')
+	,CHECK ([Password] LIKE '%[^a-zA-Z0-9]%' AND [Password] LIKE '%[0-9]%')
+	,CHECK (LEN([Password]) > 7)
+,)
+
+CREATE TABLE Categories (
+	Category_Id INT IDENTITY(1, 1) PRIMARY KEY
+	,Category NVARCHAR(25) NOT NULL
+,)
+
+CREATE TABLE Fields (
+	Field_Id INT IDENTITY(1, 1) PRIMARY KEY
+	,[Name] NVARCHAR(25) NOT NULL
+	,Category INT NOT NULL
+	,CONSTRAINT Fk_Fields_Categories
+	FOREIGN KEY (Category) REFERENCES Categories(Category_Id)
+	ON DELETE NO ACTION ON UPDATE NO ACTION
+,)
+
+CREATE TABLE ToReserve (
+	ToReserve_Id INT IDENTITY(1, 1) PRIMARY KEY
+	,Field INT NOT NULL
+	,[Date] DATETIME NOT NULL
+	,CONSTRAINT Fk_ToReserve_Fields
+	FOREIGN KEY (Field) REFERENCES Fields(Field_Id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+,)
+
+CREATE TABLE Reservations (
+	Guest INT NOT NULL
+	,ToReserve INT NOT NULL
+	,CONSTRAINT Fk_Reservations_Guests
+	FOREIGN KEY (Guest) REFERENCES Guests(Guest_Id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+	,CONSTRAINT Fk_Reservations_ToReserve
+	FOREIGN KEY (ToReserve) REFERENCES ToReserve(ToReserve_Id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+	,CONSTRAINT Pk_Reservations
+	PRIMARY KEY (Guest, ToReserve)
+,)
