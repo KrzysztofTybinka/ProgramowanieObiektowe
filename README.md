@@ -1,5 +1,11 @@
 # Harmonogram dla projektu Teatr
 
+Aplikacja Teatru xyz umożliwiajaca rezerwacje spektakli teatralnych dla klientów 
+posiadajacych okresowe bilety do teatru, upoważniające do uczęszczania na jeden 
+dowolny spektakl dziennie przez okres trwania biletu. Konto jest aktywne przez 
+czas trwania biletu, gdy aktywnośc konta upłynie, blokowana jest możliwość
+rezerwowania spektakli do ponownego aktywowania konta.
+
 ## Wizualne: 
 
 #### 1. Okno logowania
