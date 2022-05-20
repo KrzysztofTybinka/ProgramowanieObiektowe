@@ -6,7 +6,8 @@ namespace Lab07B
 {
     internal class Program
     {
-        public static string connectionString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=SportsComplex;Integrated Security=True";
+        //user controls
+        public static string connectionString = @"Data Source=localhost;Initial Catalog=SportsComplex;Integrated Security=True";
         static void Main(string[] args)
         {
             
@@ -16,9 +17,12 @@ namespace Lab07B
                 // Create
                 Console.WriteLine("Inserting data...");
                 db.Add(new Guests { Name = "Steven", Surname = "Brown", Email = "steven@saintly.org", Login = "steven1", Password = "Abc123$#ss" });
-                db.Add(new Categories { Category = "Tennis Court" });
+                //   db.Add(new Categories { Category = "Tennis Court" });
+                Categories ccc = new Categories { Category = "Tennis Court" };
+                db.Add(ccc);
                 db.SaveChanges();
-                db.Add(new Fields { Name = "Court No. 1", Category = CategorySearch("Tennis Court") });
+                db.Add(new Fields { Name = "Court No. 1", Category = ccc.Category_Id });
+                //db.Add(new Fields { Name = "Court No. 1", Category = CategorySearch("Tennis Court") });
                 db.SaveChanges();
                 db.Add(new ToReserve { Field = FieldSearch("Court No. 1"), Date = new DateTime(2022, 05, 26, 19, 00, 00) });
                 db.SaveChanges();
