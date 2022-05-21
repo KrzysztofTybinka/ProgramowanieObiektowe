@@ -1,52 +1,110 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
-public class Program
+namespace Lab08
 {
-    static void Main(string[] args)
+    public class Threads
     {
-        Object locker = new Object();
-
-        int couter = 0;
-
-        // In the below, operation `couter = couter + 1` is not atomic.
-        //
-        // It requires:
-        //   1. read `count` value from memory (RAM)
-        //   2. add 1 to `count` value in procesor (CPU)
-        //   3. write `count` value into memory (RAM)
-
-        Thread t1 = new Thread(() =>
+        static HashSet<int> set = new HashSet<int>();
+        static bool timer = true;
+        static void Main(string[] args)
         {
-            for (int i = 0; i < 1000; ++i)
+            Thread t1 = new Thread(() =>
             {
-
-                lock (locker) // remove this line and check output to see effect
+                int number = 2;
+                while (timer)
                 {
-                    couter = couter + 1;
+                    if (IsPrime(number))
+                    {
+                        lock (set)
+                        {
+                            set.Add(number);
+                        }
+                    }
+                    number++;
                 }
-            }
-        });
+            });
 
-        Thread t2 = new Thread(() =>
+            Thread t2 = new Thread(() =>
+            {
+                int number = 9500000;
+                while (timer)
+                {
+                    if (IsPrime(number))
+                    {
+                        lock (set)
+                        {
+                            set.Add(number);
+                        }
+                    }
+                    number++;
+                }
+
+            });
+
+            Thread t3 = new Thread(() =>
+            {
+                int number = 16000000;
+                while (timer)
+                {
+                    if (IsPrime(number))
+                    {
+                        lock (set)
+                        {
+                            set.Add(number);
+                        }
+                    }
+                    number++;
+                }
+
+            });
+
+            Thread t4 = new Thread(() =>
+            {
+                int number = 21315139;
+                while (timer)
+                {
+                    if (IsPrime(number))
+                    {
+                        lock (set)
+                        {
+                            set.Add(number);
+                        }
+                    }
+                    number++;
+                }
+
+            });
+            
+            t1.Start();
+            t2.Start();
+            t3.Start();
+            t4.Start();
+            t4.Join(10000);
+            timer = false;
+            Console.Write(set.Count + " prime numbers found");
+            Console.ReadLine();
+
+
+
+        }
+
+        static bool IsPrime(int number)
         {
-            for (int i = 0; i < 1000; ++i)
+            int limit = (int)Math.Floor(Math.Sqrt(number));
+            for (int i = 2; i <= limit; i++)
             {
-
-                lock (locker) // remove this line and check output to see effect
-                {
-                    couter = couter + 1;
-                }
+                if (number % i == 0)
+                    return false;
             }
-        });
+            return true;
+        }
 
-        t1.Start();
-        //Thread.Sleep(500);
-        t2.Start();
-
-        t1.Join();
-        t2.Join();
-
-        Console.WriteLine("couter=" + couter);  // 2000
     }
 }
+
+
+
+
+
