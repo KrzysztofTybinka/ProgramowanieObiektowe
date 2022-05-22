@@ -10,6 +10,24 @@
         <ImageBrush ImageSource="Images/background.png"/>
     </Window.Background>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="338*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="338*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="177*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="190*"/>
+        </Grid.RowDefinitions>
 
     </Grid>
 </Window>
