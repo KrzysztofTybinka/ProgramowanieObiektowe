@@ -20,6 +20,9 @@ namespace Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes new window and displays starting page on it.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
