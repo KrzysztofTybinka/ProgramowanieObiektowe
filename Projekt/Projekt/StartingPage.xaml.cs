@@ -20,6 +20,9 @@ namespace Projekt
     /// </summary>
     public partial class StartingPage : Page
     {
+        /// <summary>
+        /// Initializes main window.
+        /// </summary>
         public StartingPage()
         {
             InitializeComponent();

@@ -4,7 +4,7 @@ GO
 USE SportsComplex	
 GO
 
-CREATE TABLE Guests (
+CREATE TABLE Guests (    !!!dodac bool isAdmin !!!!!!!
 	Guest_Id INT IDENTITY(1, 1) PRIMARY KEY
 	,[Name] NVARCHAR(25) NOT NULL
 	,Surname NVARCHAR(25) NULL
