@@ -16,16 +16,13 @@ using System.Windows.Shapes;
 namespace Projekt
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Register.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Register : Page
     {
-        public MainWindow()
+        public Register()
         {
             InitializeComponent();
-            var p = new StartingPage();
-            Main.NavigationService.Navigate(p);
         }
-
     }
 }

@@ -9,31 +9,7 @@
     <Window.Background>
         <ImageBrush ImageSource="Images/background.png"/>
     </Window.Background>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="338*"/>
-            <ColumnDefinition Width="137*"/>
-            <ColumnDefinition Width="137*"/>
-            <ColumnDefinition Width="338*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="177*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="190*"/>
-        </Grid.RowDefinitions>
-
-        <Label Grid.Row="1" Grid.Column="1" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" Padding="0"/>
-        <Label Grid.Row="3" Grid.Column="1" Content="Hasło" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" Padding="0"/>
-        <Button Grid.Row="6" Grid.Column="1" Content="Zaloguj" Margin="3" x:Name="LoginButton" Click="LoginButton_Click" Foreground="Black" Background="#FFB3E5F1"/>
-        <Button Grid.Row="6" Grid.Column="2" Content="Zarejestruj" Margin="3" x:Name="RegisterButton" Click="RegisterButton_Click" Foreground="Black" Background="#FFB3E5F1"/>
-        <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Content="Nie pamiętam hasła" Margin="3" x:Name="ForgotPasswordButton" Click="ForgotPasswordButton_Click" Foreground="Black" Background="#FFB3E5F1"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Name="LoginBox"/>
-        <PasswordBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="PasswordBox"/>
+    <Grid x:Name="mainWIn">
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

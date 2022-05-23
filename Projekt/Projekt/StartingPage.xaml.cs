@@ -16,16 +16,29 @@ using System.Windows.Shapes;
 namespace Projekt
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StartingPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartingPage : Page
     {
-        public MainWindow()
+        public StartingPage()
         {
             InitializeComponent();
-            var p = new StartingPage();
-            Main.NavigationService.Navigate(p);
         }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Register r = new Register();
+            this.NavigationService.Navigate(r);
+        }
+
+        private void ForgotPasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
