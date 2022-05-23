@@ -29,21 +29,20 @@
         <Button Content="Zarejestruj" Grid.Column="4" Grid.Row="4" Background="#FFB3E5F1" Margin="0, 0, 25, 15" FontSize="15" x:Name="RegisterButton"/>
         <Label Grid.Column="3" Grid.Row="4" x:Name="registerInfo"/>
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="0, 0, 5, 0">
-            <Label Content="Name" FontSize="13"/>
+            <Label Content="Imie" FontSize="13"/>
             <TextBox x:Name="nameBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>
             <Label Content="Email" FontSize="13"/>
             <TextBox x:Name="emailBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>
-            <Label Content="Password" FontSize="13"/>
+            <Label Content="Hasło" FontSize="13"/>
             <PasswordBox x:Name="passwordBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="3" Margin="5, 0, 0, 0">
-            <Label Content="Surname" FontSize="13"/>
+            <Label Content="Nazwisko" FontSize="13"/>
             <TextBox x:Name="surnameBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>
             <Label Content="Login" FontSize="13"/>
             <TextBox x:Name="loginBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>
-            <Label Content="Repeat password" FontSize="13"/>
+            <Label Content="Powtórz hasło" FontSize="13"/>
             <PasswordBox x:Name="repPasswordBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>
         </StackPanel>
     </Grid>
-    
 </Page>

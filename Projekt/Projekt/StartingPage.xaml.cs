@@ -29,6 +29,7 @@ namespace Projekt
         {
 
         }
+
         /// <summary>
         /// Opens a register page.
         /// </summary>

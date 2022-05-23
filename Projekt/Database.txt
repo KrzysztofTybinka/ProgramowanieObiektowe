@@ -9,7 +9,7 @@ CREATE TABLE Guests (
 	,[Name] NVARCHAR(25) NOT NULL
 	,Surname NVARCHAR(25) NULL
 	,Email NVARCHAR(40) NOT NULL
-	,[Login] VARCHAR(15) NOT NULL
+	,[Login] VARCHAR(15) NOT NULL UNIQUE
 	,[Password] NVARCHAR(30) NOT NULL
 	,CHECK (Email LIKE '%@%')
 	,CHECK ([Password] LIKE '%[^a-zA-Z0-9]%' AND [Password] LIKE '%[0-9]%')

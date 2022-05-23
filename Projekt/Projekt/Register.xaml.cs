@@ -20,11 +20,19 @@ namespace Projekt
     /// </summary>
     public partial class Register : Page
     {
+        /// <summary>
+        /// Initializes register page.
+        /// </summary>
         public Register()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Moves back to main page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             StartingPage p = new StartingPage();
