@@ -33,11 +33,6 @@ namespace Projekt
 
         }
 
-        /// <summary>
-        /// Opens a register page.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             Register r = new Register();
