@@ -25,8 +25,9 @@
 
 
         </Grid.RowDefinitions>
-        <Button Content="Back" FontSize="15" Margin="10" Background="#FFB3E5F1"/>
-        <Button Content="Register" Grid.Column="4" Grid.Row="4" Background="#FFB3E5F1" Margin="0, 0, 25, 15" FontSize="15"/>
+        <Button Content="Wstecz" FontSize="15" Margin="10" Background="#FFB3E5F1" x:Name="BackButton" Click="BackButton_Click"/>
+        <Button Content="Zarejestruj" Grid.Column="4" Grid.Row="4" Background="#FFB3E5F1" Margin="0, 0, 25, 15" FontSize="15" x:Name="RegisterButton"/>
+        <Label Grid.Column="3" Grid.Row="4" x:Name="registerInfo"/>
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="0, 0, 5, 0">
             <Label Content="Name" FontSize="13"/>
             <TextBox x:Name="nameBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>

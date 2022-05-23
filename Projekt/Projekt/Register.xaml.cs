@@ -24,5 +24,11 @@ namespace Projekt
         {
             InitializeComponent();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartingPage p = new StartingPage();
+            this.NavigationService.Navigate(p);
+        }
     }
 }
