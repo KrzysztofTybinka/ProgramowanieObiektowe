@@ -41,30 +41,39 @@ namespace Projekt
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (passwordBox.Password == string.Empty)
+            switch (PasswordStrength(passwordBox.Password))
             {
-                passwordStrength.Content = "";
+                case "empty":
+                    passwordStrength.Content = "";
+                    break;
+                case "weak":
+                    passwordStrength.Content = "Słabe hasło";
+                    passwordStrength.Foreground = Brushes.Red;
+                    break;
+                case "medium":
+                    passwordStrength.Content = "Średnie hasło";
+                    passwordStrength.Foreground = Brushes.GreenYellow;
+                    break;
+                case "strong":
+                    passwordStrength.Content = "Silne hasło";
+                    passwordStrength.Foreground = Brushes.Green;
+                    break;
             }
-            else if (passwordBox.Password.Length < 8)
-            {
-                passwordStrength.Content = "Słabe hasło";
-                passwordStrength.Foreground = Brushes.Red;
-            }
-            else if (passwordBox.Password.Any(Char.IsUpper) && passwordBox.Password.Any(Char.IsDigit) && passwordBox.Password.Any(c => !Char.IsLetterOrDigit(c)))
-            {
-                passwordStrength.Content = "Silne hasło";
-                passwordStrength.Foreground = Brushes.Green;
-            }
-            else if (passwordBox.Password.Any(Char.IsUpper) && passwordBox.Password.Any(Char.IsDigit))
-            {
-                passwordStrength.Content = "Średnie hasło";
-                passwordStrength.Foreground = Brushes.GreenYellow;
-            }
+
+        }
+
+        private string PasswordStrength(string input)
+        {
+            if (input == string.Empty)
+                return "empty";
+            else if (input.Length < 8)
+                return "weak";
+            else if (input.Any(Char.IsUpper) && input.Any(Char.IsDigit) && input.Any(c => !Char.IsLetterOrDigit(c)))
+                return "strong";
+            else if (input.Any(Char.IsUpper) && input.Any(Char.IsDigit))
+                return "medium";
             else
-            {
-                passwordStrength.Content = "Słabe hasło";
-                passwordStrength.Foreground = Brushes.Red;
-            }
+                return "weak";
         }
     }
 }

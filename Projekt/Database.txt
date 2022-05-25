@@ -12,7 +12,7 @@ CREATE TABLE Guests (    !!!dodac bool isAdmin !!!!!!!
 	,[Login] VARCHAR(15) NOT NULL UNIQUE
 	,[Password] NVARCHAR(30) NOT NULL
 	,CHECK (Email LIKE '%@%')
-	,CHECK ([Password] LIKE '%[^a-zA-Z0-9]%' AND [Password] LIKE '%[0-9]%')
+	,CHECK ([Password] LIKE '%[0-9]%')
 	,CHECK (LEN([Password]) > 7)
 ,)
 

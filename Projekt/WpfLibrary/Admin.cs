@@ -8,5 +8,6 @@ namespace WpfLibrary
 {
     internal class Admin
     {
+        
     }
 }
