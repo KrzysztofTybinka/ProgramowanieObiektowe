@@ -38,35 +38,35 @@ namespace Projekt
         {
             string name = nameBox.Text;
             string surname = surnameBox.Text;
-            if (!NameCheck(ref name))
+            if (!NameCheck(ref name, "Imie", out string infoName))
             {
                 nameBox.Clear();
-                infoBox.Content = "Nieprawidłowe imie";
+                infoBox.Content = infoName;
                 return;
             }
-            if (!NameCheck(ref surname))
+            if (!NameCheck(ref surname, "Nazwisko", out string infoSurname))
             {
                 surnameBox.Clear();
-                infoBox.Content = "Nieprawidłowe nazwisko";
+                infoBox.Content = infoSurname;
                 return;
             }
-            if (!EmailCheck(emailBox.Text))
+            if (!EmailCheck(emailBox.Text, out string infoEmail))
             {
                 emailBox.Clear();
-                infoBox.Content = "Nieprawidłowy adres email";
+                infoBox.Content = infoEmail;
                 return;
             }
-            if (!LoginCheck(loginBox.Text))
+            if (!LoginCheck(loginBox.Text, out string infoLogin))
             {
                 loginBox.Clear();
-                infoBox.Content = "Nieprawidłowy login";
+                infoBox.Content = infoLogin;
                 return;
             }
-            if (!PasswordCheck(passwordBox.Password, repPasswordBox.Password, out string info))
+            if (!PasswordCheck(passwordBox.Password, repPasswordBox.Password, out string infoPassword))
             {
                 passwordBox.Clear();
                 repPasswordBox.Clear();
-                infoBox.Content = info;
+                infoBox.Content = infoPassword;
                 return;
             }
         }
@@ -108,37 +108,80 @@ namespace Projekt
                 return "weak";
         }
 
-        private bool NameCheck(ref string name)
+        private bool NameCheck(ref string name, string subject, out string info)
         {
             if (String.IsNullOrEmpty(name))
+            {
+                info = "Podaj " + subject;
                 return false;
+            }
             name = name.ToLower();
             name = Char.ToUpper(name[0]) + name.Substring(1);
             if (!name.All(Char.IsLetter))
+            {
+                info = "Nieprawidłowe " + subject;
                 return false;
+            }
+            if (name.Length > 25)
+            {
+                info = "Podane " + subject + " wydaje się zbyt długie,\n " +
+                    "czy na pewno podano prawidłowe " + subject + "?";
+                return false;
+            }
+            info = "";
             return true;
         }
 
-        private bool LoginCheck(string login)
+        private bool LoginCheck(string login, out string info)
         {
             if (String.IsNullOrEmpty(login))
+            {
+                info = "Podaj login";
                 return false;
+            }
             if (!login.All(Char.IsLetterOrDigit))
+            {
+                info = "Nieprawidłowy login";
                 return false;
+            }
+            if (login.Length > 15)
+            {
+                info = "Zbyt długi login";
+                return false;
+            }
+            info = "";
             return true;
         }
 
-        private bool EmailCheck(string email)
+        private bool EmailCheck(string email, out string info)
         {
             if (String.IsNullOrEmpty(email))
+            {
+                info = "Podaj adres email";
                 return false;
+            }
             var parts = email.Split('@', '.', ' ');
             if (parts.Length > 3)
+            {
+                info = "Nieprawidłowy adres email";
                 return false;
+            }
             if (!parts[0].All(Char.IsLetterOrDigit) && !parts[1].All(Char.IsLetterOrDigit) && !parts[2].All(Char.IsLetterOrDigit))
+            {
+                info = "Nieprawidłowy adres email";
                 return false;
+            }
             if (!email.Contains("@") && !email.Contains("."))
+            {
+                info = "Nieprawidłowy adres email";
                 return false;
+            }
+            if (email.Length > 40)
+            {
+                info = "Podany adres email wydaje się zbyt długi,\n" +
+                    "czy na pewno podano prawidłowy adres email?";
+            }
+            info = "";
             return true;
         }
 
@@ -157,6 +200,11 @@ namespace Projekt
             if ((string)passwordStrength.Content == "Słabe hasło")
             {
                 info = "Hasło zbyt słabe";
+                return false;
+            }
+            if (password.Length > 30)
+            {
+                info = "Hasło zbyt długie";
                 return false;
             }
             info = "";

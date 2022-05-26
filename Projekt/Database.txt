@@ -4,27 +4,27 @@ GO
 USE SportsComplex	
 GO
 
-CREATE TABLE Guests (    !!!dodac bool isAdmin !!!!!!!
+CREATE TABLE Guests (    
 	Guest_Id INT IDENTITY(1, 1) PRIMARY KEY
 	,[Name] NVARCHAR(25) NOT NULL
 	,Surname NVARCHAR(25) NULL
 	,Email NVARCHAR(40) NOT NULL UNIQUE
 	,[Login] VARCHAR(15) NOT NULL UNIQUE
 	,[Password] NVARCHAR(30) NOT NULL
+	,IsAdmin BIT DEFAULT 1
 	,CHECK (Email LIKE '%@%')
 	,CHECK ([Password] LIKE '%[0-9]%')
 	,CHECK (LEN([Password]) > 7)
 ,)
 
 CREATE TABLE Categories (
-	Category_Id INT IDENTITY(1, 1) PRIMARY KEY
-	,Category NVARCHAR(25) NOT NULL
+	Category_Id NVARCHAR(25) PRIMARY KEY
 ,)
 
 CREATE TABLE Fields (
 	Field_Id INT IDENTITY(1, 1) PRIMARY KEY
 	,[Name] NVARCHAR(25) NOT NULL
-	,Category INT NOT NULL
+	,Category NVARCHAR(25) NOT NULL
 	,CONSTRAINT Fk_Fields_Categories
 	FOREIGN KEY (Category) REFERENCES Categories(Category_Id)
 	ON DELETE NO ACTION ON UPDATE NO ACTION
