@@ -75,5 +75,41 @@ namespace Projekt
             else
                 return "weak";
         }
+
+        private bool NameCheck(ref string name)
+        {
+            if (String.IsNullOrEmpty(name))
+                return false;
+            name.ToLower();
+            Char.ToUpper(name[0]);
+            if (!name.Any(Char.IsLetterOrDigit))
+                return false;
+            return true;
+        }
+
+        private bool EmailCheck(string email)
+        {
+            if (String.IsNullOrEmpty(email))
+                return false;
+            var parts = email.Split('@', '.');
+            if (parts.Length > 3)
+                return false;
+            if (!parts[0].Any(Char.IsLetterOrDigit) && !parts[1].Any(Char.IsLetterOrDigit) && !parts[2].Any(Char.IsLetterOrDigit))
+                return false;
+            if (!email.Contains("@") && !email.Contains("."))
+                return false;
+            return true;
+        }
+
+        private bool PasswordCheck(string password, string repeat)
+        {
+            if (String.IsNullOrEmpty(password) | String.IsNullOrEmpty(repeat))
+                return false;
+            if (!password.Equals(repeat))
+                return false;
+            if ((string)passwordStrength.Content == "Słabe hasło")
+                return false;
+            return true;
+        }
     }
 }
