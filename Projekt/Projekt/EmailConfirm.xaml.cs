@@ -38,7 +38,16 @@ namespace Projekt
 
         private void accept_Click(object sender, RoutedEventArgs e)
         {
-
+            if (codeBox.Text.Length != 4)
+            {
+                message.Foreground = Brushes.Red;
+                message.Content = "Kod nieprawidłowy";
+            }
+            if (Convert.ToInt32(codeBox.Text) != ConfirmationCode.Code)
+            {
+                message.Foreground = Brushes.Red;
+                message.Content = "Kod nieprawidłowy";
+            }
         }
     }
 }

@@ -76,7 +76,7 @@ namespace Projekt
             }
             EmailConfirm p = new EmailConfirm();
             this.NavigationService.Navigate(p);
-            EmailSender.SendEmail(emailBox.Text, 5);
+            EmailSender.SendEmail(emailBox.Text, ConfirmationCode.GenerateNumberAndCount().Result);
             //DatabaseConnector.InsertGuests(name, surname, emailBox.Text, loginBox.Text, passwordBox.Password);
         }
 

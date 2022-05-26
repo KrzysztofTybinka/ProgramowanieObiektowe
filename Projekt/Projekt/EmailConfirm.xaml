@@ -30,7 +30,7 @@
             <Label Content="Potwierdź rejestracje przepisując kod" FontSize="15"/>
             <Label Content="otrzymany na podany adres mailowy." FontSize="15"/>
             <Label FontSize="10" Content=" "></Label>
-            <TextBox Height="40" FontSize="15" VerticalContentAlignment="Center"/>
+            <TextBox Height="40" FontSize="15" VerticalContentAlignment="Center" x:Name="codeBox"/>
             <Label FontSize="15" Foreground="Green" x:Name="message"/>
         </StackPanel>
     </Grid>
