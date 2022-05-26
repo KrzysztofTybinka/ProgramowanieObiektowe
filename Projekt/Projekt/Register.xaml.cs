@@ -36,7 +36,39 @@ namespace Projekt
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string name = nameBox.Text;
+            string surname = surnameBox.Text;
+            if (!NameCheck(ref name))
+            {
+                nameBox.Clear();
+                infoBox.Content = "Nieprawidłowe imie";
+                return;
+            }
+            if (!NameCheck(ref surname))
+            {
+                surnameBox.Clear();
+                infoBox.Content = "Nieprawidłowe nazwisko";
+                return;
+            }
+            if (!EmailCheck(emailBox.Text))
+            {
+                emailBox.Clear();
+                infoBox.Content = "Nieprawidłowy adres email";
+                return;
+            }
+            if (!LoginCheck(loginBox.Text))
+            {
+                loginBox.Clear();
+                infoBox.Content = "Nieprawidłowy login";
+                return;
+            }
+            if (!PasswordCheck(passwordBox.Password, repPasswordBox.Password, out string info))
+            {
+                passwordBox.Clear();
+                repPasswordBox.Clear();
+                infoBox.Content = info;
+                return;
+            }
         }
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -80,9 +112,18 @@ namespace Projekt
         {
             if (String.IsNullOrEmpty(name))
                 return false;
-            name.ToLower();
-            Char.ToUpper(name[0]);
-            if (!name.Any(Char.IsLetterOrDigit))
+            name = name.ToLower();
+            name = Char.ToUpper(name[0]) + name.Substring(1);
+            if (!name.All(Char.IsLetter))
+                return false;
+            return true;
+        }
+
+        private bool LoginCheck(string login)
+        {
+            if (String.IsNullOrEmpty(login))
+                return false;
+            if (!login.All(Char.IsLetterOrDigit))
                 return false;
             return true;
         }
@@ -91,24 +132,34 @@ namespace Projekt
         {
             if (String.IsNullOrEmpty(email))
                 return false;
-            var parts = email.Split('@', '.');
+            var parts = email.Split('@', '.', ' ');
             if (parts.Length > 3)
                 return false;
-            if (!parts[0].Any(Char.IsLetterOrDigit) && !parts[1].Any(Char.IsLetterOrDigit) && !parts[2].Any(Char.IsLetterOrDigit))
+            if (!parts[0].All(Char.IsLetterOrDigit) && !parts[1].All(Char.IsLetterOrDigit) && !parts[2].All(Char.IsLetterOrDigit))
                 return false;
             if (!email.Contains("@") && !email.Contains("."))
                 return false;
             return true;
         }
 
-        private bool PasswordCheck(string password, string repeat)
+        private bool PasswordCheck(string password, string repeat, out string info)
         {
             if (String.IsNullOrEmpty(password) | String.IsNullOrEmpty(repeat))
+            {
+                info = "Wprowadź hasło";
                 return false;
+            }
             if (!password.Equals(repeat))
+            {
+                info = "Hasła niezgodne";
                 return false;
+            }
             if ((string)passwordStrength.Content == "Słabe hasło")
+            {
+                info = "Hasło zbyt słabe";
                 return false;
+            }
+            info = "";
             return true;
         }
     }

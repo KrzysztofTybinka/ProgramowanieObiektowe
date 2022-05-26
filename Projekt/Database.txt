@@ -8,7 +8,7 @@ CREATE TABLE Guests (    !!!dodac bool isAdmin !!!!!!!
 	Guest_Id INT IDENTITY(1, 1) PRIMARY KEY
 	,[Name] NVARCHAR(25) NOT NULL
 	,Surname NVARCHAR(25) NULL
-	,Email NVARCHAR(40) NOT NULL
+	,Email NVARCHAR(40) NOT NULL UNIQUE
 	,[Login] VARCHAR(15) NOT NULL UNIQUE
 	,[Password] NVARCHAR(30) NOT NULL
 	,CHECK (Email LIKE '%@%')

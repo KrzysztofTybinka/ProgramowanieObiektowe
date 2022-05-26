@@ -28,6 +28,7 @@
         <Button Content="Wstecz" FontSize="15" Margin="10" Background="#FFB3E5F1" x:Name="BackButton" Click="BackButton_Click"/>
         <Button Content="Zarejestruj" Grid.Column="4" Grid.Row="4" Background="#FFB3E5F1" Margin="0, 0, 25, 15" FontSize="15" x:Name="RegisterButton" Click="RegisterButton_Click"/>
         <Label Grid.Column="3" Grid.Row="4" x:Name="registerInfo"/>
+        <Label Grid.Column="3" Grid.Row="4" x:Name="infoBox" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="0, 0, 5, 0">
             <Label Content="Imie" FontSize="13"/>
             <TextBox x:Name="nameBox" FontSize="15" VerticalContentAlignment="Center" Height="40"/>

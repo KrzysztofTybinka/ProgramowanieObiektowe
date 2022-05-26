@@ -5,30 +5,9 @@ check the're not null or empty
 3.Check e-mail contains letters or numbers up to at, check it contains at,
 check it contains dot, check it contains something after at and after dot,
 check it is unique (not in a database already), remove empty entries
-4. Check login contains letters and numbers only and is unique, remove empty entries
+4. Check login contains letters and numbers only and is unique, remove empty entries, 
+use same function for login - add unique
 5. Check passwords are the same.
 6. Check password isn't weak, remove empty entries
 
 
-        private bool NameCheck(ref string name)
-        {
-            if (String.IsNullOrEmpty(name))
-                return false;
-            name.ToLower();
-            Char.ToUpper(name[0]);
-            if (!name.Any(Char.IsLetterOrDigit))
-                return false;
-            return true;
-        }
-
-        private bool EmailCheck(string email)
-        {
-            if (String.IsNullOrEmpty(email))
-                return false;
-            var parts = email.Split('@', '.');
-            if (parts.Length > 3)
-                return false;
-            if (!parts[0].Any(Char.IsLetterOrDigit))
-                return false;
-
-        }
