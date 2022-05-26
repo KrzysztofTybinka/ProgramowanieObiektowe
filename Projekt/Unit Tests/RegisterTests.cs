@@ -8,8 +8,6 @@ namespace Projekt.Test
         [TestMethod]
         public void TestMethod1()
         {
-            var r = new Register();
-            string password = "Abc";
 
             
         }
