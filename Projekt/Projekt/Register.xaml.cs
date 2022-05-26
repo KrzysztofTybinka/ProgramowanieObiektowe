@@ -21,6 +21,10 @@ namespace Projekt
     public partial class Register : Page
     {
         /// <summary>
+        /// Connection string.
+        /// </summary>
+        public string conString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=SportsComplex;Integrated Security=True";
+        /// <summary>
         /// Initializes register page.
         /// </summary>
         public Register()
