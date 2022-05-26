@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfLibrary
+namespace Projekt
 {
     internal class User : Person
     {

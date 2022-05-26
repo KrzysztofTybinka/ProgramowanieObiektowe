@@ -1,6 +1,6 @@
 using System;
 
-namespace WpfLibrary
+namespace Projekt
 {
     public class Person
     {

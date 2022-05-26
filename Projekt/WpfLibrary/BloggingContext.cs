@@ -2,8 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
-namespace WpfLibrary
+namespace Projekt
 {
+    /// <summary>
+    /// Connection with database.
+    /// </summary>
     internal class BloggingContext : DbContext
     {
         public DbSet<Guests> Guests { get; set; }
@@ -32,6 +35,9 @@ namespace WpfLibrary
         }
     }
 
+    /// <summary>
+    /// Guests table.
+    /// </summary>
     public class Guests
     {
         [Key]
@@ -41,15 +47,21 @@ namespace WpfLibrary
         public string Email { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public int IsAdmin { get; set; }
     }
 
+    /// <summary>
+    /// Categories table.
+    /// </summary>
     public class Categories
     {
         [Key]
-        public int Category_Id { get; set; }
-        public string Category { get; set; }
+        public string Category_Id { get; set; }
     }
 
+    /// <summary>
+    /// Fields table.
+    /// </summary>
     public class Fields
     {
         [Key]
@@ -58,6 +70,9 @@ namespace WpfLibrary
         public int Category { get; set; }
     }
 
+    /// <summary>
+    /// To Reserve table.
+    /// </summary>
     public class ToReserve
     {
         [Key]
@@ -66,6 +81,9 @@ namespace WpfLibrary
         public DateTime Date { get; set; }
     }
 
+    /// <summary>
+    /// Reservations table.
+    /// </summary>
     public class Reservations
     {
         public int Guest { get; set; }

@@ -24,6 +24,7 @@ namespace Projekt
         /// Connection string.
         /// </summary>
         public string conString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=SportsComplex;Integrated Security=True";
+
         /// <summary>
         /// Initializes register page.
         /// </summary>
@@ -73,6 +74,7 @@ namespace Projekt
                 infoBox.Content = infoPassword;
                 return;
             }
+            DatabaseConnector.InsertGuests(name, surname, emailBox.Text, loginBox.Text, passwordBox.Password);
         }
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -214,5 +216,6 @@ namespace Projekt
             info = "";
             return true;
         }
+
     }
 }
