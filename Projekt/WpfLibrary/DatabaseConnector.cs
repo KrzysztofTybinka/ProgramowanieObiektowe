@@ -12,11 +12,32 @@ namespace Projekt
 
         public static void InsertGuests(string name, string surname, string email, string login, string password, int isAdmin = 0)
         {
-            using(BloggingContext db = new BloggingContext(conString))
+            using (BloggingContext db = new BloggingContext(conString))
             {
                 db.Add(new Guests { Name = name, Surname = surname, Email = email, Login = login, Password = password, IsAdmin = isAdmin });
                 db.SaveChanges();
             }
+        }
+
+        public static bool IsInGuests(string name)
+        {            
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                if (name.Contains('@'))
+                {
+                    if (db.Guests.Where(x => name.Equals(x.Email)).Count() > 0)
+                        return true;
+                }
+                else
+                {
+                    if (db.Guests.Where(x => name.Equals(x.Name)).Count() > 0)
+                        return true;
+                }
+                return false;                      
+            }
+
+
+
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Projekt
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
+        {      
             StartingPage p = new StartingPage();
             this.NavigationService.Navigate(p);
         }
@@ -74,7 +74,9 @@ namespace Projekt
                 infoBox.Content = infoPassword;
                 return;
             }
-            DatabaseConnector.InsertGuests(name, surname, emailBox.Text, loginBox.Text, passwordBox.Password);
+            EmailConfirm p = new EmailConfirm();
+            this.NavigationService.Navigate(p);
+            //DatabaseConnector.InsertGuests(name, surname, emailBox.Text, loginBox.Text, passwordBox.Password);
         }
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -155,6 +157,11 @@ namespace Projekt
                 info = "Zbyt długi login";
                 return false;
             }
+            if (DatabaseConnector.IsInGuests(login))
+            {
+                info = "Podany login juz istnieje";
+                return false;
+            }
             info = "";
             return true;
         }
@@ -186,6 +193,12 @@ namespace Projekt
             {
                 info = "Podany adres email wydaje się zbyt długi,\n" +
                     "czy na pewno podano prawidłowy adres email?";
+                return false;
+            }
+            if (DatabaseConnector.IsInGuests(email))
+            {
+                info = "Podany adres email jest już w uzyciu";
+                return false;
             }
             info = "";
             return true;
