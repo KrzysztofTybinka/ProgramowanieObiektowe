@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfLibrary
 {
-    internal class Admin
+    public class Admin
     {
         
     }

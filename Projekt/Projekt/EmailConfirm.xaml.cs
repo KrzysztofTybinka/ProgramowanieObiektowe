@@ -27,6 +27,17 @@ namespace Projekt
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            StartingPage p = new StartingPage();
+            this.NavigationService.Navigate(p);
+        }
+
+        private void sendAgain_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void accept_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

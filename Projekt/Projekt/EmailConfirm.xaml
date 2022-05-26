@@ -20,11 +20,11 @@
             <RowDefinition Height="22*"/>
             <RowDefinition Height="34*"/>
         </Grid.RowDefinitions>
-        <Button Content="Wstecz" Margin="5, 5, 200, 100" Background="#FFB3E5F1"/>
+        <Button Content="Wstecz" Margin="5, 5, 200, 100" Background="#FFB3E5F1" x:Name="Back" Click="Back_Click"/>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
-            <Button Content="Wyślij ponownie" FontSize="15" Background="#FFB3E5F1" Width="120"/>
+            <Button Content="Wyślij ponownie" FontSize="15" Background="#FFB3E5F1" Width="120" x:Name="sendAgain" Click="sendAgain_Click"/>
             <Label Content="      "/>
-            <Button Content="Akceptuj" FontSize="15" Background="#FFB3E5F1" Width="120"/>
+            <Button Content="Akceptuj" FontSize="15" Background="#FFB3E5F1" Width="120" x:Name="accept" Click="accept_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Content="Potwierdź rejestracje przepisując kod" FontSize="15"/>

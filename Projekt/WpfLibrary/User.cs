@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekt
 {
-    internal class User : Person
+    public class User : Person
     {
         private string name;
         private string surname;

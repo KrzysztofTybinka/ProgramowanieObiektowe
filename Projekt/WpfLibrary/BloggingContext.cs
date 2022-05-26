@@ -7,7 +7,7 @@ namespace Projekt
     /// <summary>
     /// Connection with database.
     /// </summary>
-    internal class BloggingContext : DbContext
+    public class BloggingContext : DbContext
     {
         public DbSet<Guests> Guests { get; set; }
         public DbSet<Categories> Categories { get; set; }
