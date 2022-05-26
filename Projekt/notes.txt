@@ -1,13 +1,12 @@
-ON REGISTER 
-check the're not null or empty
-1. Check name contains only letters, remove empty entries, function has reference to a string to format it
-2. Check surname contains only letters, remove empty entries, use same function for surname.
-3.Check e-mail contains letters or numbers up to at, check it contains at,
-check it contains dot, check it contains something after at and after dot,
-check it is unique (not in a database already), remove empty entries
-4. Check login contains letters and numbers only and is unique, remove empty entries, 
-use same function for login - add unique
-5. Check passwords are the same.
-6. Check password isn't weak, remove empty entries
+strona: mailtrap.io
+login: programowanieobiektowe@o2.pl
+hasło: Zaq12wsx
+
+1. Czy Dobry pomysł z mierzeniem czasu?
+2. Czemu mail nie dochodzi?
+3. Czy na pewno nie robić do prywatnych metod testów? Lub czy je gdzieś przenieść (register)
+4. Jak wysłać baze danych?
+5. Jak robić dokumentacje?
+
 
 
