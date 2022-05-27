@@ -12,6 +12,39 @@ namespace Lab08
         {
             Thread t1 = new Thread(() =>
             {
+                int number = 0;
+                while (timer)
+                {
+                    if (IsPrime(number))
+                    {
+                        lock (set)
+                        {
+                            set.Add(number);
+                        }
+                    }
+                    number += 4;
+                }
+            });
+
+            Thread t2 = new Thread(() =>
+            {
+                int number = 1;
+                while (timer)
+                {
+                    if (IsPrime(number))
+                    {
+                        lock (set)
+                        {
+                            set.Add(number);
+                        }
+                    }
+                    number += 4;
+                }
+
+            });
+
+            Thread t3 = new Thread(() =>
+            {
                 int number = 2;
                 while (timer)
                 {
@@ -22,47 +55,14 @@ namespace Lab08
                             set.Add(number);
                         }
                     }
-                    number++;
-                }
-            });
-
-            Thread t2 = new Thread(() =>
-            {
-                int number = 9500000;
-                while (timer)
-                {
-                    if (IsPrime(number))
-                    {
-                        lock (set)
-                        {
-                            set.Add(number);
-                        }
-                    }
-                    number++;
-                }
-
-            });
-
-            Thread t3 = new Thread(() =>
-            {
-                int number = 16000000;
-                while (timer)
-                {
-                    if (IsPrime(number))
-                    {
-                        lock (set)
-                        {
-                            set.Add(number);
-                        }
-                    }
-                    number++;
+                    number += 4;
                 }
 
             });
 
             Thread t4 = new Thread(() =>
             {
-                int number = 21315139;
+                int number = 3;
                 while (timer)
                 {
                     if (IsPrime(number))
@@ -72,7 +72,7 @@ namespace Lab08
                             set.Add(number);
                         }
                     }
-                    number++;
+                    number += 4;
                 }
 
             });

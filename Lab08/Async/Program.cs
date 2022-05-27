@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Async
 {
@@ -19,9 +20,10 @@ namespace Async
 
         static async Task CountPrimes()
         {
+            Stopwatch s = Stopwatch.StartNew();
+
             int number = 2;
-            Task clock = Task.Run(() => Clock());
-            while (timer)
+            while (s.ElapsedMilliseconds < 10000)
             {
                 Task<Tuple<bool, int>> p1 = Task.Run(() => IsPrime(number));
                 number++;
@@ -45,12 +47,6 @@ namespace Async
                 if (prime4.Item1)
                     set.Add(prime4.Item2);
             }
-        }
-
-        static void Clock()
-        {
-            Thread.Sleep(10000);
-            timer = false;
         }
 
         static Tuple<bool, int> IsPrime(int number)

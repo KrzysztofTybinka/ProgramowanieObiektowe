@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,6 +10,7 @@ namespace Projekt
 {
     public static class ConfirmationCode
     {
+        //Stopwatch s = new Stopwatch(); tego użyć jako zegara, stopwatch jest static!!
         public static int Code { get; set; }
         public static async Task<int> GenerateNumberAndCount()
         {
