@@ -34,7 +34,7 @@ namespace Projekt
 
         private void sendAgain_Click(object sender, RoutedEventArgs e)
         {
-
+            EmailSender.SendEmail();
         }
 
         private void accept_Click(object sender, RoutedEventArgs e)

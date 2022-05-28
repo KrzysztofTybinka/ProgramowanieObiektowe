@@ -56,6 +56,12 @@ namespace Projekt
 
         }
 
+        public static void SendEmail()
+        {
+            if (User != null)
+                SendEmail(User);
+        }
+
 
         private static int GenerateNumberAndCount()
         {
