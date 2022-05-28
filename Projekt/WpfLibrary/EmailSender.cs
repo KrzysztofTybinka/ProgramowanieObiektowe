@@ -16,6 +16,11 @@ namespace Projekt
         public static Stopwatch Clock { get => clock; }
         public static int Code { get; set; }
 
+        /// <summary>
+        /// Sends email message with random 4 digit  
+        /// code into a given email address.
+        /// </summary>
+        /// <param name="user"></param>
         public static void SendEmail(User user)
         {
             User = user;
@@ -56,6 +61,10 @@ namespace Projekt
 
         }
 
+        /// <summary>
+        /// Sends email message with new random
+        /// into given email address.
+        /// </summary>
         public static void SendEmail()
         {
             if (User != null)

@@ -10,6 +10,10 @@ namespace Projekt
     {
         public static string conString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=SportsComplex;Integrated Security=True";
 
+        /// <summary>
+        /// Inserts guest into a database.
+        /// </summary>
+        /// <param name="u"></param>
         public static void InsertGuest(User u)
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -27,6 +31,11 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Evaluates whether given username or e-mail is already in a database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>True if is, otherwise false.</returns>
         public static bool IsInGuests(string name)
         {            
             using (BloggingContext db = new BloggingContext(conString))
@@ -38,7 +47,7 @@ namespace Projekt
                 }
                 else
                 {
-                    if (db.Guests.Where(x => name.Equals(x.Name)).Count() > 0)
+                    if (db.Guests.Where(x => name.Equals(x.Login)).Count() > 0)
                         return true;
                 }
                 return false;                      
