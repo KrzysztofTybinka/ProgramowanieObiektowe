@@ -23,7 +23,7 @@ namespace Projekt
         public EmailConfirm(User user)
         {
             InitializeComponent();
-            EmailSender.SendEmail(user);
+            EmailSender.SendRegisterEmail(user);
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace Projekt
 
         private void sendAgain_Click(object sender, RoutedEventArgs e)
         {
-            EmailSender.SendEmail();
+            EmailSender.SendAgainEmail();
         }
 
         private void accept_Click(object sender, RoutedEventArgs e)

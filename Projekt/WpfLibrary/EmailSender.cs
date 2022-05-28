@@ -16,26 +16,41 @@ namespace Projekt
         public static Stopwatch Clock { get => clock; }
         public static int Code { get; set; }
 
+
         /// <summary>
-        /// Sends email message with random 4 digit  
-        /// code into a given email address.
+        /// Sends email message with new random
+        /// 4 digit number into given email address.
         /// </summary>
-        /// <param name="user"></param>
-        public static void SendEmail(User user)
+        public static void SendAgainEmail()
+        {
+            if (User != null)
+                SendRegisterEmail(User);
+        }
+
+        public static void SendRegisterEmail(User user)
         {
             User = user;
-            MimeMessage message = new MimeMessage();
             int code = GenerateNumberAndCount();
-
-            message.From.Add(new MailboxAddress("Kod weryfikacyjny", "programowanieobiektoweprojekt@gmail.com"));
-            message.To.Add(MailboxAddress.Parse(User.Email));
-            message.Subject = "Obiekt sportowy";
-
+            MimeMessage message = new MimeMessage();
             message.Body = new TextPart("plain")
             {
                 Text = $"Witaj {User.Name},\n" +
                 $"aby aktywować konto wpisz podany kod: {code}."
             };
+            SendEmail(User, message);
+        }
+
+        /// <summary>
+        /// Sends email message with random 4 digit  
+        /// code into a given email address.
+        /// </summary>
+        /// <param name="user"></param>
+        public static void SendEmail(User user, MimeMessage message)
+        {
+
+            message.From.Add(new MailboxAddress("Kod weryfikacyjny", "programowanieobiektoweprojekt@gmail.com"));
+            message.To.Add(MailboxAddress.Parse(User.Email));
+            message.Subject = "Obiekt sportowy";
 
             string emailAddress = "programowanieobiektoweprojekt@gmail.com";
             string password = "Zaq12wsx!";
@@ -60,17 +75,6 @@ namespace Projekt
             }
 
         }
-
-        /// <summary>
-        /// Sends email message with new random
-        /// into given email address.
-        /// </summary>
-        public static void SendEmail()
-        {
-            if (User != null)
-                SendEmail(User);
-        }
-
 
         private static int GenerateNumberAndCount()
         {
