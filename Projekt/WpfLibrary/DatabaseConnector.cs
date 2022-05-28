@@ -10,6 +10,14 @@ namespace Projekt
     {
         public static string conString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=SportsComplex;Integrated Security=True";
 
+        public static Guests? GuestByEmail(string email)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                return db.Guests.Where(x => x.Email == email).FirstOrDefault();
+            }
+        }
+
         /// <summary>
         /// Inserts guest into a database.
         /// </summary>

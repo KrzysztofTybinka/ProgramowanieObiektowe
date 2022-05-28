@@ -27,6 +27,11 @@ namespace Projekt
                 SendRegisterEmail(User);
         }
 
+        /// <summary>
+        /// Sends email message with random 4 digit  
+        /// code into a given email address.
+        /// </summary>
+        /// <param name="user"></param>
         public static void SendRegisterEmail(User user)
         {
             User = user;
@@ -41,11 +46,27 @@ namespace Projekt
         }
 
         /// <summary>
-        /// Sends email message with random 4 digit  
-        /// code into a given email address.
+        /// Sends email message with random 
+        /// 4 digit number into a given email address.
         /// </summary>
         /// <param name="user"></param>
-        public static void SendEmail(User user, MimeMessage message)
+        public static void SendRecoverPasswordCode(string email)
+        {
+            var g = DatabaseConnector.GuestByEmail(email);
+            if (g == null)
+
+            User =  
+            int code = GenerateNumberAndCount();
+            MimeMessage message = new MimeMessage();
+            message.Body = new TextPart("plain")
+            {         
+                Text = $"Witaj {User.Name},\n" +
+                $"aby zresetować hasło wpisz podany kod: {code}."
+            };
+            SendEmail(User, message);
+        }
+
+        private static void SendEmail(User user, MimeMessage message)
         {
 
             message.From.Add(new MailboxAddress("Kod weryfikacyjny", "programowanieobiektoweprojekt@gmail.com"));
