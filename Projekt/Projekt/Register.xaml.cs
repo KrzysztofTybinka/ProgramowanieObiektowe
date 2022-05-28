@@ -74,7 +74,7 @@ namespace Projekt
                 infoBox.Content = infoPassword;
                 return;
             }
-            EmailSender.User = new User
+            EmailSender.SendEmail(new User
             {
                 Login = loginBox.Text,
                 Password = passwordBox.Password,
@@ -82,8 +82,7 @@ namespace Projekt
                 Name = name,
                 Surname = surname,
                 IsAdmin = false
-            };
-            EmailSender.SendEmail(emailBox.Text);
+            });
             EmailConfirm p = new EmailConfirm();
             this.NavigationService.Navigate(p);                        
         }

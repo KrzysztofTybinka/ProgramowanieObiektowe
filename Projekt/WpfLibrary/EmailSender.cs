@@ -1,49 +1,63 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Mail;
-using System.Net;
-using System.Threading;
 using System.Diagnostics;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
+using System.Windows;
 
 namespace Projekt
 {
     public static class EmailSender
     {
-        private static string from = "programowanieobiektowe@o2.pl";
-        private static string? to;
-        private static string subject = "Test Email";
-        private static string body = "Confirm your registration typing given code";
-        private static string username = "093cc53135e966";
-        private static string password = "f48c5d7871762e";
-        private static string host = "smtp.mailtrap.io";
-        private static int port = 587;
+
         private static Stopwatch clock = new Stopwatch();
 
         public static User? User { get; set; }
         public static Stopwatch Clock { get => clock; }
         public static int Code { get; set; }
 
-        public static void SendEmail(string recipient)
+        public static void SendEmail(User user)
         {
-            to = recipient;
-            body += Convert.ToString(Code);
-            SmtpClient client = new SmtpClient(host, port)
+            User = user;
+            MimeMessage message = new MimeMessage();
+            int code = GenerateNumberAndCount();
+
+            message.From.Add(new MailboxAddress("Kod weryfikacyjny", "programowanieobiektoweprojekt@gmail.com"));
+            message.To.Add(MailboxAddress.Parse(User.Email));
+            message.Subject = "Obiekt sportowy";
+
+            message.Body = new TextPart("plain")
             {
-                Credentials = new NetworkCredential(username, password),
-                EnableSsl = true
+                Text = $"Witaj {User.Name},\n" +
+                $"aby aktywować konto wpisz podany kod: {code}."
             };
-            client.Send(from, to, subject, body);
+
+            string emailAddress = "programowanieobiektoweprojekt@gmail.com";
+            string password = "Zaq12wsx!";
+
+            SmtpClient client = new SmtpClient();
+
+            try
+            {
+                client.Connect("smtp.gmail.com", 465, true);
+                client.Authenticate(emailAddress, password);
+                client.Send(message);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Coś poszło nie tak");
+                Application.Current.Shutdown();
+            }
+            finally
+            {
+                client.Disconnect(true);
+                client.Dispose();
+            }
+
         }
 
-        /// <summary>
-        /// Generates random 4 digit number and assigns
-        /// the result to ConfirmationCode.Code property.
-        /// </summary>
-        /// <returns>Random 4 digit number.</returns>
-        public static int GenerateNumberAndCount()
+
+        private static int GenerateNumberAndCount()
         {
             var r = new Random();
             clock.Start();
