@@ -8,23 +8,19 @@ namespace Projekt
 {
     public class User : Person
     {
-        private string name;
-        private string surname;
-        private string email;
-
         /// <summary>
         /// Gets user name.
         /// </summary>
-        public string Name { get { return name; } }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets user surname.
         /// </summary>
-        public string Surname { get { return surname; } }
+        public string? Surname { get; set; }
 
         /// <summary>
         /// Gets user email.
         /// </summary>
-        public string Email { get { return email; } }
+        public string? Email { get; set; }
     }
 }

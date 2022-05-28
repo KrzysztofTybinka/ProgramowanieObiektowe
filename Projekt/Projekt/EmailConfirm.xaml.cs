@@ -42,12 +42,21 @@ namespace Projekt
             {
                 message.Foreground = Brushes.Red;
                 message.Content = "Kod nieprawidłowy";
+                return;
             }
-            if (Convert.ToInt32(codeBox.Text) != ConfirmationCode.Code)
+            if (Convert.ToInt32(codeBox.Text) != EmailSender.Code)
             {
                 message.Foreground = Brushes.Red;
-                message.Content = "Kod nieprawidłowy"; 
+                message.Content = "Kod nieprawidłowy";
+                return;
             }
+            if (EmailSender.Clock.ElapsedMilliseconds < 900000)
+            {
+                message.Foreground = Brushes.Red;
+                message.Content = "Czas upłynął, wyślij nowy kod";
+                return;
+            }
+            DatabaseConnector.InsertGuest(EmailSender.User);
         }
     }
 }

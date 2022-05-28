@@ -4,25 +4,21 @@ namespace Projekt
 {
     public class Person
     {
-        protected string login;
-        protected string password;
-        protected bool isAdmin;
-
         /// <summary>
         /// Gets user login.
         /// </summary>
-        public string Login { get; }
+        public string? Login { get; set; }
 
         /// <summary>
         /// Gets user password.
         /// </summary>
-        public string Password { get; }
+        public string? Password { get; set; }
 
         /// <summary>
         /// Gets IsAdmin value
         /// </summary>
         /// <returns>True if user is admin, otherwise false.</returns>
-        public bool IsAdmin { get { return isAdmin; } }
+        public bool IsAdmin { get; set; }
 
     }
 }

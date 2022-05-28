@@ -42,11 +42,11 @@ namespace Projekt
     {
         [Key]
         public int Guest_Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
+        public string? Email { get; set; }
+        public string? Login { get; set; }
+        public string? Password { get; set; }
         public int IsAdmin { get; set; }
     }
 
@@ -56,7 +56,7 @@ namespace Projekt
     public class Categories
     {
         [Key]
-        public string Category_Id { get; set; }
+        public string? Category_Id { get; set; }
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ namespace Projekt
     {
         [Key]
         public int Field_Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Category { get; set; }
     }
 

@@ -74,10 +74,18 @@ namespace Projekt
                 infoBox.Content = infoPassword;
                 return;
             }
+            EmailSender.User = new User
+            {
+                Login = loginBox.Text,
+                Password = passwordBox.Password,
+                Email = emailBox.Text,
+                Name = name,
+                Surname = surname,
+                IsAdmin = false
+            };
+            EmailSender.SendEmail(emailBox.Text);
             EmailConfirm p = new EmailConfirm();
-            this.NavigationService.Navigate(p);
-            EmailSender.SendEmail(emailBox.Text, ConfirmationCode.GenerateNumberAndCount().Result);
-            //DatabaseConnector.InsertGuests(name, surname, emailBox.Text, loginBox.Text, passwordBox.Password);
+            this.NavigationService.Navigate(p);                        
         }
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)

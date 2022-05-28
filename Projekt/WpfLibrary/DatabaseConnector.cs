@@ -10,11 +10,19 @@ namespace Projekt
     {
         public static string conString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=SportsComplex;Integrated Security=True";
 
-        public static void InsertGuests(string name, string surname, string email, string login, string password, int isAdmin = 0)
+        public static void InsertGuest(User u)
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                db.Add(new Guests { Name = name, Surname = surname, Email = email, Login = login, Password = password, IsAdmin = isAdmin });
+                db.Add(new Guests 
+                { 
+                    Name = u.Name, 
+                    Surname = u.Surname,
+                    Email = u.Email, 
+                    Login = u.Login, 
+                    Password = u.Password, 
+                    IsAdmin = 0 
+                });
                 db.SaveChanges();
             }
         }
