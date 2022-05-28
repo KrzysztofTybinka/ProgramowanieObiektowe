@@ -46,7 +46,7 @@ namespace Projekt
             if (Convert.ToInt32(codeBox.Text) != ConfirmationCode.Code)
             {
                 message.Foreground = Brushes.Red;
-                message.Content = "Kod nieprawidłowy";
+                message.Content = "Kod nieprawidłowy"; 
             }
         }
     }
