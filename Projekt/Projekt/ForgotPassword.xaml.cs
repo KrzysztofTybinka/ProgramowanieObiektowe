@@ -24,5 +24,16 @@ namespace Projekt
         {
             InitializeComponent();
         }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmailSender.SendRecoverPasswordCode(box.Text);
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            StartingPage s = new StartingPage();
+            this.NavigationService.Navigate(s);
+        }
     }
 }

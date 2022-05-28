@@ -41,7 +41,8 @@ namespace Projekt
 
         private void ForgotPasswordButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ForgotPassword f = new ForgotPassword();
+            this.NavigationService.Navigate(f);
         }
     }
 }
