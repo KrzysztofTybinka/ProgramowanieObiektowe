@@ -67,7 +67,7 @@ namespace Projekt
                 infoBox.Content = infoLogin;
                 return;
             }
-            if (!RegisterValidation.PasswordCheck(passwordBox.Password, repPasswordBox.Password, out string infoPassword))
+            if (!RegisterValidation.PasswordCheck(passwordBox.Password, repPasswordBox.Password, (string)passwordStrength.Content, out string infoPassword))
             {
                 passwordBox.Clear();
                 repPasswordBox.Clear();

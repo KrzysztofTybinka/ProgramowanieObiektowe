@@ -9,6 +9,12 @@ namespace Projekt
 {
     public class RegisterValidation
     {
+        /// <summary>
+        /// Checks strength of a password, returned value
+        /// indicates whether password meets expected conditions.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Tuple containing info about password strength and matching color.</returns>
         public static (string, SolidColorBrush) PasswordStrength(string input)
         {
             if (input == string.Empty)
@@ -23,6 +29,14 @@ namespace Projekt
                 return ("Słabe hasło", Brushes.Red);
         }
 
+        /// <summary>
+        /// Checks if name is in correct format, returned value
+        /// indicates whether name meets expected conditions.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="subject"></param>
+        /// <param name="info"></param>
+        /// <returns>True if is, otherwise false.</returns>
         public static bool NameCheck(ref string name, string subject, out string info)
         {
             if (String.IsNullOrEmpty(name))
@@ -47,6 +61,13 @@ namespace Projekt
             return true;
         }
 
+        /// <summary>
+        /// Checks if login is in correct format, returned value 
+        /// indicates whether login meets expected conditions.
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="info"></param>
+        /// <returns>True if is, otherwise false.</returns>
         public static bool LoginCheck(string login, out string info)
         {
             if (String.IsNullOrEmpty(login))
@@ -73,6 +94,13 @@ namespace Projekt
             return true;
         }
 
+        /// <summary>
+        /// Checks if email is in correct format, returned value indicates 
+        /// whether email meets expected conditions.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="info"></param>
+        /// <returns>True if is, otherwsie false.</returns>
         public static bool EmailCheck(string email, out string info)
         {
             if (String.IsNullOrEmpty(email))
@@ -80,16 +108,20 @@ namespace Projekt
                 info = "Podaj adres email";
                 return false;
             }
-            var parts = email.Split('@', '.', ' ');
-            if (parts.Length > 3)
+            char at = '@';
+            if (email.IndexOf(at) != email.LastIndexOf(at))
             {
                 info = "Nieprawidłowy adres email";
                 return false;
             }
-            if (!parts[0].All(Char.IsLetterOrDigit) && !parts[1].All(Char.IsLetterOrDigit) && !parts[2].All(Char.IsLetterOrDigit))
+            var parts = email.Split('@', '.');
+            foreach (var part in parts)
             {
-                info = "Nieprawidłowy adres email";
-                return false;
+                if (!part.All(Char.IsLetterOrDigit) | String.IsNullOrEmpty(part))
+                {
+                    info = "Nieprawidłowy adres email";
+                    return false;
+                }
             }
             if (!email.Contains("@") && !email.Contains("."))
             {
@@ -111,7 +143,16 @@ namespace Projekt
             return true;
         }
 
-        public static bool PasswordCheck(string password, string repeat, out string info)
+        /// <summary>
+        /// Checks if password is strong enough, returned 
+        /// value indicates whether password meets expected condtions. 
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="repeat"></param>
+        /// <param name="strength"></param>
+        /// <param name="info"></param>
+        /// <returns>True if is, otherwise false, </returns>
+        public static bool PasswordCheck(string password, string repeat,string strength, out string info)
         {
             if (String.IsNullOrEmpty(password) | String.IsNullOrEmpty(repeat))
             {
@@ -123,7 +164,7 @@ namespace Projekt
                 info = "Hasła niezgodne";
                 return false;
             }
-            if ((string)passwordStrength.Content == "Słabe hasło")
+            if (strength == "Słabe hasło")
             {
                 info = "Hasło zbyt słabe";
                 return false;
