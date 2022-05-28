@@ -61,7 +61,7 @@ namespace Projekt
         {
             var r = new Random();
             clock.Start();
-            return Code = r.Next(4);
+            return Code = r.Next(1000, 9999);
         }
 
     }

@@ -20,9 +20,10 @@ namespace Projekt
     /// </summary>
     public partial class EmailConfirm : Page
     {
-        public EmailConfirm()
+        public EmailConfirm(User user)
         {
             InitializeComponent();
+            EmailSender.SendEmail(user);
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -50,13 +51,16 @@ namespace Projekt
                 message.Content = "Kod nieprawidłowy";
                 return;
             }
-            if (EmailSender.Clock.ElapsedMilliseconds < 900000)
+            if (EmailSender.Clock.ElapsedMilliseconds > 900000)
             {
                 message.Foreground = Brushes.Red;
                 message.Content = "Czas upłynął, wyślij nowy kod";
                 return;
             }
             DatabaseConnector.InsertGuest(EmailSender.User);
+            message.Foreground = Brushes.Green;
+            message.Content = "Konto utworzone!";
+            codeBox.Clear();
         }
     }
 }
