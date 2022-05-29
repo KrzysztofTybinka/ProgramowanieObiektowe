@@ -35,7 +35,7 @@ namespace Projekt
                 return;
             }
             EmailSender.SendRecoverPasswordCode(box.Text);
-            NewPassword n = new NewPassword();
+            NewPassword n = new NewPassword(box.Text);
             this.NavigationService.Navigate(n);
         }
 

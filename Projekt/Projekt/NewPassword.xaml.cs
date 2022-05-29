@@ -20,8 +20,10 @@ namespace Projekt
     /// </summary>
     public partial class NewPassword : Page
     {
-        public NewPassword()
+        private string email;
+        public NewPassword(string email)
         {
+            this.email = email;
             InitializeComponent();
         }
 
@@ -29,6 +31,35 @@ namespace Projekt
         {
             ForgotPassword f = new ForgotPassword();
             this.NavigationService.Navigate(f);
+        }
+
+        private void changeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (code.Text.Length != 4)
+            {
+                info.Foreground = Brushes.Red;
+                info.Content = "Kod nieprawidłowy";
+                code.Clear();
+                return;
+            }
+            if (Convert.ToInt32(code.Text) != EmailSender.Code)
+            {
+                info.Foreground = Brushes.Red;
+                info.Content = "Kod nieprawidłowy";
+                code.Clear();
+                return;
+            }
+            if(!RegisterValidation.PasswordCheck(password.Password, repPassword.Password, RegisterValidation.PasswordStrength(password.Password).Item1, out string msg))
+            {
+                info.Foreground = Brushes.Red;
+                info.Content = msg;
+                password.Clear();
+                repPassword.Clear();
+                return;
+            }
+            info.Foreground = Brushes.Green;
+            info.Content = "Hasło zmienione";
+            DatabaseConnector.ChangePassword(password.Password, email);
         }
     }
 }

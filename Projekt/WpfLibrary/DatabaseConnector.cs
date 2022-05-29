@@ -10,11 +10,32 @@ namespace Projekt
     {
         public static string conString = @"Data Source=LAPTOP-CNL6SERI;Initial Catalog=SportsComplex;Integrated Security=True";
 
+        /// <summary>
+        /// Changes user password to a new given password.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        public static void ChangePassword(string password, string email)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var g = db.Guests.Where(x => email.Equals(x.Email)).FirstOrDefault();
+                if(g is not null)
+                    g.Password = password;
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Searches guest in a database using input email address.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public static Guests? GuestByEmail(string email)
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                return db.Guests.Where(x => x.Email == email).FirstOrDefault();
+                return db.Guests.Where(x => email.Equals(x.Email)).FirstOrDefault();                   
             }
         }
 
@@ -26,15 +47,15 @@ namespace Projekt
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                db.Add(new Guests 
-                { 
-                    Name = u.Name, 
+                db.Add(new Guests
+                {
+                    Name = u.Name,
                     Surname = u.Surname,
-                    Email = u.Email, 
-                    Login = u.Login, 
-                    Password = u.Password, 
-                    IsAdmin = 0 
-                });
+                    Email = u.Email,
+                    Login = u.Login,
+                    Password = u.Password,
+                    IsAdmin = false
+                }); 
                 db.SaveChanges();
             }
         }
