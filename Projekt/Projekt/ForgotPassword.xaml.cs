@@ -27,7 +27,16 @@ namespace Projekt
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!EmailSender.SendRecoverPasswordCode(box.Text))
+            {
+                lowerInfo.Content = "Konto nie istnieje";
+                lowerInfo.Foreground = Brushes.Red;
+                box.Clear();
+                return;
+            }
             EmailSender.SendRecoverPasswordCode(box.Text);
+            NewPassword n = new NewPassword();
+            this.NavigationService.Navigate(n);
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

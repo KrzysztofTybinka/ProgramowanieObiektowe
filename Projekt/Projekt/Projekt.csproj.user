@@ -10,6 +10,12 @@
     <Compile Update="EmailConfirm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ForgotPassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NewPassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,7 +27,13 @@
     <Page Update="EmailConfirm.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NewPassword.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Register.xaml">

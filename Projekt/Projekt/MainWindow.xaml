@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
         Title="MainWindow" Height="594" Width="950">
-    <Window.Background>
-        <ImageBrush ImageSource="Images/background.png"/>
-    </Window.Background>
+
     <Grid x:Name="mainWIn">
         <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>
