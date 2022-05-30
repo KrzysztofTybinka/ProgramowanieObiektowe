@@ -6,21 +6,40 @@ using System.Threading.Tasks;
 
 namespace Projekt
 {
-    public class User : Person
+
+    public class User : Guests
     {
-        /// <summary>
-        /// Gets user name.
-        /// </summary>
-        public string? Name { get; set; }
+        public User()
+        {
 
-        /// <summary>
-        /// Gets user surname.
-        /// </summary>
-        public string? Surname { get; set; }
+        }
 
-        /// <summary>
-        /// Gets user email.
-        /// </summary>
-        public string? Email { get; set; }
+        public User(Guests g)
+        {
+            Name = g.Name;
+            Surname = g.Surname;
+            Email = g.Email;
+            Login = g.Login;
+            Password = g.Password;
+            IsAdmin = g.IsAdmin;
+        }
+
+        public User(string name, string surname, string email, string login, string password, bool isAdmin = false)
+        {
+            Name = name;
+            Surname = surname;
+            Email = email;
+            Login = login;
+            Password = password;
+            IsAdmin = isAdmin;
+        }
+
+        public User(string name, string email, string login, string password)
+        {
+            Name = name;
+            Email = email;
+            Login = login;
+            Password = password;
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace Projekt
         /// <returns>True if email has been sent succesfully, otherwise false.</returns>
         public static bool SendRecoverPasswordCode(string email)
         {
-            var g = DatabaseConnector.GuestByEmail(email);
+            var g = DatabaseConnector.GuestByEmailOrLogin(email);
             if (g == null)
                 return false;
 

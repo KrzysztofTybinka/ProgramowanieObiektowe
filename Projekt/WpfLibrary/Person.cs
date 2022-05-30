@@ -2,7 +2,7 @@ using System;
 
 namespace Projekt
 {
-    public class Person
+    public class Person : Guests
     {
         /// <summary>
         /// Gets user login.
