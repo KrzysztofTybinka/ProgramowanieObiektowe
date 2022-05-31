@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AdminStartingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EmailConfirm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,8 +25,14 @@
     <Compile Update="StartingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserStartingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AdminStartingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="EmailConfirm.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -40,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="StartingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserStartingPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
