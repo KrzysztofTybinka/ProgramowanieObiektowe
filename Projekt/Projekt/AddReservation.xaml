@@ -25,8 +25,12 @@
         <Label Grid.Row="1" Grid.Column="1" Content="Pomieszczenia:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
         <Label Grid.Row="1" Grid.Column="2" Content="Lista rezerwacji:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
         <DataGrid Grid.Row="2" x:Name="KategorieDataGrid">
+
+        </DataGrid>
         <DataGrid Grid.Row="2" Grid.Column="1" x:Name="PomieszczeniaDataGrid">
-        <DataGrid Grid.Row="2" Grid.Column="1" x:Name="ListaRezDataGrid">
+            
+        </DataGrid>
+        <DataGrid Grid.Row="2" Grid.Column="2" x:Name="ListaRezDataGrid">
             
         </DataGrid>
     </Grid>
