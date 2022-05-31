@@ -30,7 +30,21 @@ namespace Projekt
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!Logged.Login(LoginBox.Text, PasswordBox.Password))
+            {
+                info.Content = "Nieprawidłowe dane";
+                return;
+            }
+            if (Logged.User.IsAdmin)
+            {
+                AdminStartingPage a = new AdminStartingPage();
+                this.NavigationService.Navigate(a);
+            }
+            else
+            {
+                UserStartingPage u = new UserStartingPage();
+                this.NavigationService.Navigate(u);
+            }
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)

@@ -34,5 +34,6 @@
         <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Content="Nie pamiętam hasła" Margin="3" x:Name="ForgotPasswordButton" Click="ForgotPasswordButton_Click" Foreground="Black" Background="#FFB3E5F1"/>
         <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LoginBox" FontSize="15" VerticalContentAlignment="Center"/>
         <PasswordBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="PasswordBox" FontSize="15" VerticalContentAlignment="Center"/>
+        <Label Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" x:Name="info" Foreground="Red"/>
     </Grid>
 </Page>
