@@ -9,6 +9,14 @@
       Title="UserStartingPage">
 
     <Grid Background="White">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="191*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible"></ScrollViewer>
+
     </Grid>
 </Page>

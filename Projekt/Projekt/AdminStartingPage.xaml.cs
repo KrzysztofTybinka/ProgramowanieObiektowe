@@ -24,5 +24,28 @@ namespace Projekt
         {
             InitializeComponent();
         }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            StartingPage s = new StartingPage();
+            this.NavigationService.Navigate(s);
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddReservation_Click(object sender, RoutedEventArgs e)
+        {
+            AddReservation a = new AddReservation();
+            this.NavigationService.Navigate(a);
+        }
+
+        private void GuestList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
