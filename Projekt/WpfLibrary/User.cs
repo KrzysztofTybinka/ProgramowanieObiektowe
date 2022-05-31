@@ -41,5 +41,17 @@ namespace Projekt
             Login = login;
             Password = password;
         }
+
+        public User ConvertToUser(Guests g)
+        {
+            var u = new User();
+            u.Name = g.Name;
+            u.Email = g.Email;
+            u.Login = g.Login;
+            u.Password = g.Password;
+            if(g.Surname is not null)
+                u.Surname = g.Surname;
+            return u;
+        }
     }
 }
