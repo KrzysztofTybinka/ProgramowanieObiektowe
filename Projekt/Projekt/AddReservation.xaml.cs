@@ -23,6 +23,7 @@ namespace Projekt
         public AddReservation()
         {
             InitializeComponent();
+            categoriesList.ItemsSource = DatabaseConnector.SearchCategories();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

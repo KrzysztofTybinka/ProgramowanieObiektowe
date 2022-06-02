@@ -24,14 +24,9 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Kategorie:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
         <Label Grid.Row="1" Grid.Column="1" Content="Pomieszczenia:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
         <Label Grid.Row="1" Grid.Column="2" Content="Lista rezerwacji:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
-        <DataGrid Grid.Row="2" x:Name="KategorieDataGrid">
 
-        </DataGrid>
-        <DataGrid Grid.Row="2" Grid.Column="1" x:Name="PomieszczeniaDataGrid">
-            
-        </DataGrid>
-        <DataGrid Grid.Row="2" Grid.Column="2" x:Name="ListaRezDataGrid">
-            
-        </DataGrid>
+        <ListBox Grid.Column="0" Grid.Row="2" x:Name="categoriesList"/>
+        <ListBox Grid.Column="1" Grid.Row="2" x:Name="rommsList"/>
+        <ListBox Grid.Column="2" Grid.Row="2" x:Name="reservationList"/>
     </Grid>
 </Page>

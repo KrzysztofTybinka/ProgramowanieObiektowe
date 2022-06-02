@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Projekt
 {
@@ -130,6 +131,43 @@ namespace Projekt
                 db.Remove(g);
                 db.SaveChanges();
                 return true;
+            }
+        }
+
+        /// <summary>
+        /// Selects for all items in Categories table.
+        /// </summary>
+        /// <returns>Array of strins containing all categories.</returns> //dopisac testy
+        public static string[] SearchCategories()
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var output = db.Categories
+                    .Select(x => x.Category_Id)
+                    .ToArray();
+                return output;
+            }
+        }
+
+        /// <summary>
+        /// Adds category to Categories table.
+        /// </summary>
+        /// <param name="input"></param>
+        public static void AddCategory(string input)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                if (input is null)
+                {
+                    MessageBox.Show("Podaj nazwę kategorii");
+                    return;
+                }
+                if (input.Length > 25)
+                {
+                    MessageBox.Show("Nazwa jest zbyt długa");
+                    return;
+                }
+                db.Add(input);
             }
         }
     }
