@@ -2,11 +2,7 @@ strona: mailtrap.io
 login: programowanieobiektowe@o2.pl
 hasło: Zaq12wsx
 
-1. Czy Dobry pomysł z mierzeniem czasu?  --użyć stopwatch
-2. Czemu mail nie dochodzi?
-3. Czy na pewno nie robić do prywatnych metod testów? Lub czy je gdzieś przenieść (register)
-4. Jak wysłać baze danych?
-5. Jak robić dokumentacje?
+
 
 
 

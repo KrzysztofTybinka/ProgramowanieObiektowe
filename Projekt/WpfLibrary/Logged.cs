@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Projekt
 {
-    public static class Logged
+    public static class LoggedGuest
     {
-        private static User? user;
+        private static Guests? guest;
 
-        public static User? User { get { return user; } }
+        public static Guests? Guest { get { return guest; } }
 
         /// <summary>
         /// Validates user login and password, logs the user 
@@ -24,7 +24,7 @@ namespace Projekt
             var g = DatabaseConnector.GuestByEmailOrLogin(login);
             if (g == null || !g.Password.Equals(password))
                 return false;
-            user = new User(g);
+            guest = g;
             return true;
         }
 
@@ -33,7 +33,7 @@ namespace Projekt
         /// </summary>
         public static void Logout()
         {
-            user = null;
+            guest = null;
         }
     }
 }

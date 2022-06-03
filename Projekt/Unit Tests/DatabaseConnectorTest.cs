@@ -54,7 +54,7 @@ namespace Projekt.Test
         [TestMethod]
         public void InsertGuest_Inserts_New_Guest_Successfully()
         {
-            User u = new User
+            Guests u = new Guests
             {
                 Name = "TestName",
                 Surname = "TestSurname",
@@ -72,7 +72,7 @@ namespace Projekt.Test
         [TestMethod]
         public void InsertGuest_Inserts_New_Guest_Unsuccessfully()
         {
-            User u = new User
+            Guests u = new Guests
             {
                 Name = "TestName",
                 Surname = "TestSurname",
@@ -104,13 +104,13 @@ namespace Projekt.Test
         public void IsInGuest_User_Is_In_Guests_With_User()
         {
             var u = DatabaseConnector.GuestByEmailOrLogin("test123");
-            Assert.AreEqual(DatabaseConnector.IsInGuests(new User(u)), true);
+            Assert.AreEqual(DatabaseConnector.IsInGuests(u.Login), true);
         }
 
         [TestMethod]
         public void RemoveGuestWithEmailOrLogin_Guest_Removed()
         {
-            User u = new User
+            Guests u = new Guests
             {
                 Name = "TestName",
                 Surname = "TestSurname",

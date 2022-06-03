@@ -74,7 +74,7 @@ namespace Projekt
                 infoBox.Content = infoPassword;
                 return;
             }
-            EmailConfirm p = new EmailConfirm(new User
+            EmailConfirm p = new EmailConfirm(new Guests()
             {
                 Login = loginBox.Text,
                 Password = passwordBox.Password,

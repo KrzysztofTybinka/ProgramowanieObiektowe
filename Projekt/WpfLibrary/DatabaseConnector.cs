@@ -59,17 +59,17 @@ namespace Projekt
         /// <summary>
         /// Inserts guest into a database if possible.
         /// </summary>
-        /// <param name="u"></param>
+        /// <param name="g"></param>
         /// <returns>True if user has been inserted, otherwise false.</returns>
-        public static bool InsertGuest(User u)
+        public static bool InsertGuest(Guests g)
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                if (u is null)
+                if (g is null)
                     return false;
-                if (IsInGuests(u.Login) | IsInGuests(u.Email))
+                if (IsInGuests(g.Login!) | IsInGuests(g.Email!))
                     return false;
-                db.Add(u);
+                db.Add(g);
                 db.SaveChanges();
                 return true;
             }
@@ -103,13 +103,13 @@ namespace Projekt
         /// <summary>
         /// Evaluates whether given user is already in database.
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="guest"></param>
         /// <returns>True if is, otherwise false.</returns>
-        public static bool IsInGuests(User user)
+        public static bool IsInGuests(Guests guest)
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                if (db.Guests.Where(x => user.Email.Equals(x.Email)).Any())
+                if (db.Guests.Where(x => guest.Email.Equals(x.Email)).Any())
                     return true;
                 return false;
             }
@@ -167,7 +167,7 @@ namespace Projekt
                     MessageBox.Show("Nazwa jest zbyt długa");
                     return;
                 }
-                db.Add(input);
+                db.Categories.Add(new Categories { Category_Id = input });
             }
         }
     }

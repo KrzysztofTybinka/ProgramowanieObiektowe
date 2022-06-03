@@ -12,7 +12,7 @@ namespace Projekt
 
         private static Stopwatch clock = new Stopwatch();
 
-        public static User? User { get; set; }
+        public static Guests? Guest { get; set; }
         public static Stopwatch Clock { get => clock; }
         public static int Code { get; set; }
 
@@ -23,8 +23,8 @@ namespace Projekt
         /// </summary>
         public static void SendAgainEmail()
         {
-            if (User != null)
-                SendRegisterEmail(User);
+            if (Guest != null)
+                SendRegisterEmail(Guest);
         }
 
         /// <summary>
@@ -32,17 +32,17 @@ namespace Projekt
         /// code into a given email address.
         /// </summary>
         /// <param name="user"></param>
-        public static void SendRegisterEmail(User user)
+        public static void SendRegisterEmail(Guests guest)
         {
-            User = user;
+            Guest = guest;
             int code = GenerateNumberAndCount();
             MimeMessage message = new MimeMessage();
             message.Body = new TextPart("plain")
             {
-                Text = $"Witaj {User.Name},\n" +
+                Text = $"Witaj {Guest.Name},\n" +
                 $"aby aktywować konto wpisz podany kod: {code}."
             };
-            SendEmail(User, message);
+            SendEmail(Guest, message);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Projekt
             if (g == null)
                 return false;
 
-            User = new User
+            Guest = new Guests
             {
                 Name = g.Name,
                 Surname = g.Surname,
@@ -70,17 +70,17 @@ namespace Projekt
             MimeMessage message = new MimeMessage();
             message.Body = new TextPart("plain")
             {         
-                Text = $"Witaj {User.Name},\n" +
+                Text = $"Witaj {Guest.Name},\n" +
                 $"aby zresetować hasło wpisz podany kod: {code}."
             };
-            SendEmail(User, message);
+            SendEmail(Guest, message);
             return true;
         }
 
-        private static void SendEmail(User user, MimeMessage message)
+        private static void SendEmail(Guests guest, MimeMessage message)
         {
             message.From.Add(new MailboxAddress("Kod weryfikacyjny", "programowanieobiektoweprojekt@gmail.com"));
-            message.To.Add(MailboxAddress.Parse(user.Email));
+            message.To.Add(MailboxAddress.Parse(guest.Email));
             message.Subject = "Obiekt sportowy";
 
             string emailAddress = "programowanieobiektoweprojekt@gmail.com";
