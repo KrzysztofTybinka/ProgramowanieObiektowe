@@ -138,7 +138,7 @@ namespace Projekt
         /// Selects for all items in Categories table.
         /// </summary>
         /// <returns>Array of strins containing all categories.</returns> //dopisac testy
-        public static string[] SearchCategories()
+        public static string?[] SearchCategories()
         {
             using (BloggingContext db = new BloggingContext(conString))
             {

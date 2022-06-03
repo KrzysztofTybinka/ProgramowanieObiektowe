@@ -22,7 +22,7 @@ namespace Projekt
         public static bool Login(string login, string password)
         {
             var g = DatabaseConnector.GuestByEmailOrLogin(login);
-            if (g == null || !g.Password.Equals(password))
+            if (g.Password == null || !g.Password.Equals(password))
                 return false;
             guest = g;
             return true;
