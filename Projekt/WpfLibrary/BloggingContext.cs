@@ -71,7 +71,9 @@ namespace Projekt
     {
         [Key]
         public int Field_Id { get; set; }
-        public string? Name { get; set; }
+        [Required]
+        public string Name { get; set; }
+        [Required]
         public int Category { get; set; }
     }
 
@@ -82,7 +84,9 @@ namespace Projekt
     {
         [Key]
         public int ToReserve_Id { get; set; }
+        [Required]
         public int Field { get; set; }
+        [Required]
         public DateTime Date { get; set; }
     }
 

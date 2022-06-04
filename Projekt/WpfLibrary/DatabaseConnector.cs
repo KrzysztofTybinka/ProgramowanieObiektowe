@@ -137,7 +137,7 @@ namespace Projekt
         /// <summary>
         /// Selects for all items in Categories table.
         /// </summary>
-        /// <returns>Array of strins containing all categories.</returns> //dopisac testy
+        /// <returns>Array of strins containing all categories.</returns>
         public static string?[] SearchCategories()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -153,15 +153,38 @@ namespace Projekt
         /// Adds category to Categories table.
         /// </summary>
         /// <param name="input"></param>
+        /// <returns>Returns true if category added succesfully, otherwise false.</returns>
         public static bool AddCategory(string input)
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
                 if (input is null || input.Length > 25)
                     return false;
-                db.Categories.Add(new Categories { Category_Id = input });
-                db.SaveChanges();
+                try
+                {
+                    db.Categories.Add(new Categories { Category_Id = input });
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
                 return true;
+            }
+        }
+
+        /// <summary>
+        /// Removes category from Categories table.
+        /// </summary>
+        /// <param name="category"></param>
+        public static void DeleteCategory(string category)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                if (category is null || category.Length > 25)
+                    return;
+                db.Categories.Remove(new Categories { Category_Id = category });
+                db.SaveChanges();
             }
         }
     }

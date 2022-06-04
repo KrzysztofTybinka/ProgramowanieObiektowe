@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Projekt.Test
 {
@@ -122,6 +123,58 @@ namespace Projekt.Test
             DatabaseConnector.InsertGuest(u);
             DatabaseConnector.RemoveGuestWithEmailOrLogin("test@email.com");
             Assert.AreEqual(DatabaseConnector.IsInGuests(u), false);
+        }
+
+        [TestMethod]
+        public void SearchCategories_Returns_Array_With_Categories()
+        {
+            string toassert = "Boisko do koszykówki";
+            var arr = DatabaseConnector.SearchCategories();
+            Assert.AreEqual(arr[0], toassert);
+        }
+
+        [TestMethod]
+        public void AddCategory_Returns_False_For_Null_Input()
+        {
+            bool b = DatabaseConnector.AddCategory(null);
+            Assert.IsFalse(b);
+        }
+
+        [TestMethod]
+        public void AddCategory_Returns_False_For_Too_Long_Input()
+        {
+            bool b = DatabaseConnector.AddCategory("sssssssssssssssssssssssssssss");
+            Assert.IsFalse(b);
+        }
+
+        [TestMethod]
+        public void AddCategory_Adds_Category()
+        {
+            string category = "testowa kategoria";
+            bool b = DatabaseConnector.AddCategory(category);
+            var arr = DatabaseConnector.SearchCategories();
+            Assert.IsTrue(b);
+            Assert.IsTrue(arr.Contains(category));
+            DatabaseConnector.DeleteCategory(category);
+        }
+
+        [TestMethod]
+        public void AddCategory_Returns_False_For_Inserting_Twice_Same_Category()
+        {
+            string category = "testowa kategoria";
+            Assert.IsTrue(DatabaseConnector.AddCategory(category));
+            Assert.IsFalse(DatabaseConnector.AddCategory(category));
+            DatabaseConnector.DeleteCategory(category);
+        }
+
+        [TestMethod]
+        public void DeleteCategory_Deletes_Category()
+        {
+            string category = "testowa kategoria";
+            Assert.IsTrue(DatabaseConnector.AddCategory(category));
+            DatabaseConnector.DeleteCategory(category);
+            var arr = DatabaseConnector.SearchCategories();
+            Assert.IsFalse(arr.Contains(category));
         }
     }
 }
