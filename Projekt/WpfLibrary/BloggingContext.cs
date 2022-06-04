@@ -42,11 +42,16 @@ namespace Projekt
     {
         [Key]
         public int Guest_Id { get; set; }
-        public string? Name { get; set; }
+        [Required]
+        public string Name { get; set; }
         public string? Surname { get; set; }
-        public string? Email { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
         public string? Login { get; set; }
-        public string? Password { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
         public bool IsAdmin { get; set; }
     }
 

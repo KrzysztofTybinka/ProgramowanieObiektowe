@@ -10,7 +10,7 @@ namespace Projekt.Tests
         {
             string login = "test123";
             string password = "Test123!";
-            Assert.AreEqual(Logged.Login(login, password), true);
+            Assert.AreEqual(LoggedGuest.Login(login, password), true);
         }
 
         [TestMethod]
@@ -18,7 +18,7 @@ namespace Projekt.Tests
         {
             string login = "test123";
             string password = "Test123!#";
-            Assert.AreEqual(Logged.Login(login, password), false);
+            Assert.AreEqual(LoggedGuest.Login(login, password), false);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace Projekt.Tests
         {
             string login = "test1235";
             string password = "Test123!";
-            Assert.AreEqual(Logged.Login(login, password), false);
+            Assert.AreEqual(LoggedGuest.Login(login, password), false);
         }
 
         [TestMethod]
@@ -34,10 +34,10 @@ namespace Projekt.Tests
         {
             string login = "test123";
             string password = "Test123!";
-            Logged.Login(login, password);
-            Assert.AreEqual(Logged.User.Name, "Test");
-            Logged.Logout();
-            Assert.AreEqual(Logged.User, null);
+            LoggedGuest.Login(login, password);
+            Assert.AreEqual(LoggedGuest.Guest.Name, "Test");
+            LoggedGuest.Logout();
+            Assert.AreEqual(LoggedGuest.Guest, null);
         }
 
     }
