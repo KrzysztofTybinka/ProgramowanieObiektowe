@@ -32,6 +32,9 @@ namespace Projekt
                 message.Content = "Błąd przy dodawaniu kategorii";
                 return;
             }
+            Events addedEvent = new Events();
+            AddReservation added = new AddReservation();
+            addedEvent.CategoryAdded += added.Refresh;
             this.Close();
         }
     }

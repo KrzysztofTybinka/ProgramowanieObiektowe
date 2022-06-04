@@ -20,14 +20,6 @@ namespace Projekt
     /// </summary>
     public partial class AddReservation : Page
     {
-        public delegate void AddCategoryEventHandler();
-        public event AddCategoryEventHandler CategoryAdded;
-
-        protected virtual void OnAddCategory()
-        {
-            if (CategoryAdded != null)
-                CategoryAdded();
-        }
         public AddReservation()
         {
             InitializeComponent();
@@ -44,6 +36,16 @@ namespace Projekt
         {
             AddCategoryWin w = new AddCategoryWin();
             w.Show();
+        }
+
+        private void RemoveCategory_Click(object sender, RoutedEventArgs e)
+        {
+            categoriesList.Items.Remove(categoriesList.SelectedItem);
+        }
+
+        public void Refresh()
+        {
+
         }
     }
 }
