@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Projekt
 {
     /// <summary>
-    /// Interaction logic for UserStartingPage.xaml
+    /// Interaction logic for GuestStartingPage.xaml
     /// </summary>
-    public partial class UserStartingPage : Page
+    public partial class GuestStartingPage : Page
     {
-        public UserStartingPage()
+        public GuestStartingPage()
         {
             InitializeComponent();
         }

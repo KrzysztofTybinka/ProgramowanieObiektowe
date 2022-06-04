@@ -28,7 +28,7 @@
     <Compile Update="StartingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserStartingPage.xaml.cs">
+    <Compile Update="GuestStartingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -57,7 +57,7 @@
     <Page Update="StartingPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserStartingPage.xaml">
+    <Page Update="GuestStartingPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

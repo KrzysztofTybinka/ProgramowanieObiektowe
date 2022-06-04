@@ -42,7 +42,7 @@ namespace Projekt
             }
             else
             {
-                UserStartingPage u = new UserStartingPage();
+                GuestStartingPage u = new GuestStartingPage();
                 this.NavigationService.Navigate(u);
             }
         }
