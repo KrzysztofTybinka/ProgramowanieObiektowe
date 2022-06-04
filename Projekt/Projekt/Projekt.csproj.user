@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddCategoryWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddReservation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
     <Compile Update="ForgotPassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GuestStartingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="NewPassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,11 +34,11 @@
     <Compile Update="StartingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GuestStartingPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddCategoryWin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AddReservation.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -45,6 +51,9 @@
     <Page Update="ForgotPassword.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="GuestStartingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -55,9 +64,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="StartingPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="GuestStartingPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

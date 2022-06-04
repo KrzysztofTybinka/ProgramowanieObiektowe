@@ -153,21 +153,15 @@ namespace Projekt
         /// Adds category to Categories table.
         /// </summary>
         /// <param name="input"></param>
-        public static void AddCategory(string input)
+        public static bool AddCategory(string input)
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                if (input is null)
-                {
-                    MessageBox.Show("Podaj nazwę kategorii");
-                    return;
-                }
-                if (input.Length > 25)
-                {
-                    MessageBox.Show("Nazwa jest zbyt długa");
-                    return;
-                }
+                if (input is null || input.Length > 25)
+                    return false;
                 db.Categories.Add(new Categories { Category_Id = input });
+                db.SaveChanges();
+                return true;
             }
         }
     }

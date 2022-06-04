@@ -31,5 +31,11 @@ namespace Projekt
             AdminStartingPage a = new AdminStartingPage();
             this.NavigationService.Navigate(a);
         }
+
+        private void AddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            AddCategoryWin w = new AddCategoryWin();
+            w.Show();
+        }
     }
 }
