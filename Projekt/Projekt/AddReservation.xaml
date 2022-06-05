@@ -28,7 +28,20 @@
         <ListBox Grid.Column="0" Grid.Row="2" x:Name="categoriesList"/>
         <ListBox Grid.Column="1" Grid.Row="2" x:Name="roomsList"/>
         <ListBox Grid.Column="2" Grid.Row="2" x:Name="bookList"/>
-        <Button Grid.Row="3" Margin="15,5,140,5" Background="#FFB3E5F1" Content="Dodaj kategorie" x:Name="AddCategory" Click="AddCategory_Click"/>
-        <Button Grid.Row="3" Margin="140,5,15,5" Background="#FFB3E5F1" Content="Usuń kategorie" x:Name="RemoveCategory" Click="RemoveCategory_Click"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Label Content="     "/>
+            <Button Background="#FFB3E5F1" Content="Dodaj kategorie" x:Name="AddCategory" Click="AddCategory_Click"/>
+            <Label Content="         "/>
+            <Button Background="#FFB3E5F1" Content="Usuń kategorie" x:Name="RemoveCategory" Click="RemoveCategory_Click"/>
+            <Label Content="         "/>
+            <Button Background="#FFB3E5F1" Content="Dodaj pomieszczenie" x:Name="AddField" Click="AddField_Click"/>
+            <Label Content="   "/>
+            <Button Background="#FFB3E5F1" Content="Usuń pomieszczenie" x:Name="RemoveField" Click="RemoveField_Click"/>
+            <Label Content="       "/>
+            <Button Background="#FFB3E5F1" Content="Dodaj termin" x:Name="AddToReserve" Click="AddToReserve_Click"/>
+            <Label Content="                  "/>
+            <Button Background="#FFB3E5F1" Content="Usuń termin" x:Name="RemoveToReserve" Click="RemoveToReserve_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

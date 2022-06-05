@@ -47,6 +47,26 @@ namespace Projekt
             }
         }
 
+        private void RemoveField_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddField_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddToReserve_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveToReserve_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public void Update()
         {
             categoriesList.ItemsSource = DatabaseConnector.SearchCategories();
