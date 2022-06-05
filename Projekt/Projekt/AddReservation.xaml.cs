@@ -40,7 +40,11 @@ namespace Projekt
 
         private void RemoveCategory_Click(object sender, RoutedEventArgs e)
         {
-            categoriesList.Items.Remove(categoriesList.SelectedItem);
+            if (MessageBoxes.RemoveCategoryBox())
+            {
+                DatabaseConnector.DeleteCategory((string)categoriesList.SelectedItem);
+                Update();
+            }
         }
 
         public void Update()
