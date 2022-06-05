@@ -236,5 +236,58 @@ namespace Projekt
                 return true;
             }
         }
+
+        public static string[] SearchToReserve()
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var arr = (from toReserve in db.ToReserve
+                                join field in db.Fields on toReserve.Field equals field.Field_Id
+                                where toReserve.Field == field.Field_Id
+                                select new {Id = toReserve.ToReserve_Id, Field = field.Name, Date = toReserve.Date.ToShortDateString()}).ToArray();
+
+                var output = new string[arr.Length];
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    output[i] = "Id: " + Convert.ToString(arr[i].Id) + "\n"
+                        + "Nazwa: " + arr[i].Field + "\n"
+                        + "Data: " + arr[i].Date + "\n";
+                }
+                return output;
+            }
+        }
+
+        public static bool AddToReserve(ToReserve toReserve)
+        {
+            if (toReserve is null)
+                return false;
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                try
+                {
+                    db.ToReserve.Add(toReserve);
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public static bool DeleteToReserve(int id)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var f = db.ToReserve.Where(x => x.ToReserve_Id == id).FirstOrDefault();
+                if (f is null)
+                    return false;
+                db.ToReserve.Remove(f);
+                db.SaveChanges();
+                return true;
+            }
+        }
     }
 }

@@ -51,3 +51,6 @@ CREATE TABLE Reservations (
 	,CONSTRAINT Pk_Reservations
 	PRIMARY KEY (Guest, ToReserve)
 ,)
+
+ALTER TABLE ToReserve
+ADD CONSTRAINT Field_Date_Unique UNIQUE (Field, Date)

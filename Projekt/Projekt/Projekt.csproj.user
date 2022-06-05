@@ -16,6 +16,9 @@
     <Compile Update="AddReservation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddToReserveWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AdminStartingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AddReservation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddToReserveWin.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminStartingPage.xaml">

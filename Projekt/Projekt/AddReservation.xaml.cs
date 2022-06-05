@@ -69,18 +69,27 @@ namespace Projekt
 
         private void AddToReserve_Click(object sender, RoutedEventArgs e)
         {
-
+            AddToReserveWin w = new AddToReserveWin(this);
+            w.Show();
         }
 
         private void RemoveToReserve_Click(object sender, RoutedEventArgs e)
         {
-
+            if (bookList.SelectedItem is null)
+                return;
+            if (MessageBoxes.RemoveToReserveBox())
+            {
+                string s = (string)bookList.SelectedItem;
+                DatabaseConnector.DeleteToReserve(Convert.ToInt32(Convert.ToString(s[4])));
+                Update();
+            }
         }
 
         public void Update()
         {
             categoriesList.ItemsSource = DatabaseConnector.SearchCategories();
             roomsList.ItemsSource = DatabaseConnector.SearchFields();
+            bookList.ItemsSource = DatabaseConnector.SearchToReserve();
         }
     }
 }

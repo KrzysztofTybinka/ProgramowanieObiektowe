@@ -22,5 +22,12 @@ namespace Projekt
                 return false;
             return true;
         }
+
+        public static bool RemoveToReserveBox()
+        {
+            if (MessageBox.Show("Czy na pewno chcesz usunąć ten termin?", "Usuń termin", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                return false;
+            return true;
+        }
     }
 }
