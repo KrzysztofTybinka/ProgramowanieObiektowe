@@ -137,7 +137,7 @@ namespace Projekt
         /// <summary>
         /// Selects for all items in Categories table.
         /// </summary>
-        /// <returns>Array of strins containing all categories.</returns>
+        /// <returns>Array of strings containing all categories.</returns>
         public static string?[] SearchCategories()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -188,6 +188,10 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Selects for all items in Fields table.
+        /// </summary>
+        /// <returns>Array of strings containing all Fields.</returns>
         public static string[] SearchFields()
         {
             using (BloggingContext db = new BloggingContext(conString))

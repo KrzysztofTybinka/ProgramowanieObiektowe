@@ -176,5 +176,39 @@ namespace Projekt.Test
             var arr = DatabaseConnector.SearchCategories();
             Assert.IsFalse(arr.Contains(category));
         }
+
+        [TestMethod]
+        public void SearchFields_Returns_Array_With_Fields()
+        {
+            var arr = DatabaseConnector.SearchFields();
+            Assert.IsTrue(arr.Contains("Id: 3\nNazwa: Koszykówka #1\nKategoria: Boisko do koszykówki\n"));
+        }
+
+        [TestMethod]
+        public void AddField_Returns_False_For_Null_Input()
+        {
+            bool b = DatabaseConnector.AddField(null);
+            Assert.IsFalse(b);
+        }
+
+        [TestMethod]
+        public void AddField_Returns_False_For_Too_Long_Input()
+        {
+            bool b = DatabaseConnector.AddField("sssssssssssssssssssssssssssss");
+            Assert.IsFalse(b);
+        }
+
+        [TestMethod]
+        public void AddCategory_Adds_Category()
+        {
+            string category = "testowa kategoria";
+            bool b = DatabaseConnector.AddCategory(category);
+            var arr = DatabaseConnector.SearchCategories();
+            Assert.IsTrue(b);
+            Assert.IsTrue(arr.Contains(category));
+            DatabaseConnector.DeleteCategory(category);
+        }
+
+
     }
 }
