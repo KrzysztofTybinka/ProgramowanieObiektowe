@@ -18,7 +18,7 @@ namespace Projekt
     /// <summary>
     /// Interaction logic for AddReservation.xaml
     /// </summary>
-    public partial class AddReservation : Page
+    public partial class AddReservation : Page 
     {
         public AddReservation()
         {

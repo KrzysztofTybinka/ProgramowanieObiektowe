@@ -27,8 +27,11 @@ namespace Projekt
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {
-            StartingPage s = new StartingPage();
-            this.NavigationService.Navigate(s);
+            if (MessageBoxes.LogOutBox())
+            {
+                StartingPage s = new StartingPage();
+                this.NavigationService.Navigate(s);
+            }
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
