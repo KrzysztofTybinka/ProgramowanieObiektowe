@@ -10,6 +10,9 @@
     <Compile Update="AddCategoryWin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddFieldWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddReservation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddCategoryWin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddFieldWin.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AddReservation.xaml">

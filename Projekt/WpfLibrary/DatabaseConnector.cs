@@ -187,5 +187,54 @@ namespace Projekt
                 db.SaveChanges();
             }
         }
+
+        public static string[] SearchFields()
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var fields = db.Fields.ToArray();
+                var output = new string[fields.Length];
+
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    output[i] = "Id: " + Convert.ToString(fields[i].Field_Id) + "\n"
+                        + "Nazwa: " + fields[i].Name + "\n"
+                        + "Kategoria: " + fields[i].Category + "\n";
+                }
+                return output;
+            }
+        }
+
+        public static bool AddField(Fields field)
+        {
+            if (field is null)
+                return false;
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                try
+                {
+                    db.Fields.Add(field);
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public static bool DeleteField(int id)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var f = db.Fields.Where(x => x.Field_Id == id).FirstOrDefault();
+                if (f is null)
+                    return false;
+                db.Fields.Remove(f);
+                db.SaveChanges();
+                return true;
+            }
+        }
     }
 }

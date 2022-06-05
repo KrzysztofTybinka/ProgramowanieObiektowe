@@ -40,6 +40,8 @@ namespace Projekt
 
         private void RemoveCategory_Click(object sender, RoutedEventArgs e)
         {
+            if (categoriesList.SelectedItem is null)
+                return;
             if (MessageBoxes.RemoveCategoryBox())
             {
                 DatabaseConnector.DeleteCategory((string)categoriesList.SelectedItem);
@@ -47,14 +49,22 @@ namespace Projekt
             }
         }
 
-        private void RemoveField_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void AddField_Click(object sender, RoutedEventArgs e)
         {
+            AddFieldWin w = new AddFieldWin(this);
+            w.Show();
+        }
 
+        private void RemoveField_Click(object sender, RoutedEventArgs e)
+        {
+            if (roomsList.SelectedItem is null)
+                return;
+            if (MessageBoxes.RemoveFieldBox())
+            {
+                string s = (string)roomsList.SelectedItem;
+                DatabaseConnector.DeleteField(Convert.ToInt32(Convert.ToString(s[4])));
+                Update();
+            }
         }
 
         private void AddToReserve_Click(object sender, RoutedEventArgs e)
@@ -70,6 +80,7 @@ namespace Projekt
         public void Update()
         {
             categoriesList.ItemsSource = DatabaseConnector.SearchCategories();
+            roomsList.ItemsSource = DatabaseConnector.SearchFields();
         }
     }
 }

@@ -15,5 +15,12 @@ namespace Projekt
                     return false;
             return true;
         }
+
+        public static bool RemoveFieldBox()
+        {
+            if (MessageBox.Show("Czy na pewno chcesz usunąć to pomieszczenie?", "Usuń pomieszczenie", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                return false;
+            return true;
+        }
     }
 }
