@@ -19,9 +19,19 @@ namespace Projekt
     /// </summary>
     public partial class AddCategoryWin : Window
     {
-        public AddCategoryWin()
+        public delegate void AddCategoryEventHandler();
+        public event AddCategoryEventHandler CategoryAdded;
+
+        protected virtual void OnAddCategory()
+        {
+            if (CategoryAdded != null)
+                CategoryAdded();
+        }
+
+        public AddCategoryWin(AddReservation sender)
         {
             InitializeComponent();
+            CategoryAdded += sender.Update;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -32,9 +42,7 @@ namespace Projekt
                 message.Content = "Błąd przy dodawaniu kategorii";
                 return;
             }
-            Events addedEvent = new Events();
-            AddReservation added = new AddReservation();
-            addedEvent.CategoryAdded += added.Refresh;
+            OnAddCategory();
             this.Close();
         }
     }

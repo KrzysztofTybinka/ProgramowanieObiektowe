@@ -23,7 +23,7 @@ namespace Projekt
         public AddReservation()
         {
             InitializeComponent();
-            categoriesList.ItemsSource = DatabaseConnector.SearchCategories();
+            Update();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace Projekt
 
         private void AddCategory_Click(object sender, RoutedEventArgs e)
         {
-            AddCategoryWin w = new AddCategoryWin();
+            AddCategoryWin w = new AddCategoryWin(this);
             w.Show();
         }
 
@@ -43,9 +43,9 @@ namespace Projekt
             categoriesList.Items.Remove(categoriesList.SelectedItem);
         }
 
-        public void Refresh()
+        public void Update()
         {
-
+            categoriesList.ItemsSource = DatabaseConnector.SearchCategories();
         }
     }
 }
