@@ -28,6 +28,9 @@
     <Compile Update="ForgotPassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GuestsList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GuestStartingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GuestsList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GuestStartingPage.xaml">

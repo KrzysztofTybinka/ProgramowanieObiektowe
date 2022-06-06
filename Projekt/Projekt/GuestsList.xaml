@@ -27,6 +27,7 @@
             <Label Content="     "/>
             <Button Content="   Usuń użytkownika   " Background="#FFB3E5F1" x:Name="deleteUser" Click="deleteUser_Click"/>
         </StackPanel>
+        <ListBox Grid.Column="2" Grid.Row="1" x:Name="list"/>
 
     </Grid>
 </Page>

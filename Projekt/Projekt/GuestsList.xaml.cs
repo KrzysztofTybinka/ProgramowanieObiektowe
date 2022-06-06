@@ -23,11 +23,13 @@ namespace Projekt
         public GuestsList()
         {
             InitializeComponent();
+            list.ItemsSource = DatabaseConnector.SearchGuests();
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminStartingPage a = new AdminStartingPage();
+            this.NavigationService.Navigate(a);
         }
 
         private void usersToXml_Click(object sender, RoutedEventArgs e)
@@ -37,7 +39,15 @@ namespace Projekt
 
         private void deleteUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (list.SelectedItem is null)
+                return;
+            if (MessageBoxes.DeleteUserBox())
+            {
+                string s = (string)list.SelectedItem;
+                var arr = s.Split('\n', ' ');
+                DatabaseConnector.RemoveGuestWithEmailOrLogin(arr[7]);
+                list.ItemsSource = DatabaseConnector.SearchGuests();
+            }
         }
     }
 }

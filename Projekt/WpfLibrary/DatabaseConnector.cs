@@ -317,5 +317,36 @@ namespace Projekt
                 return true;
             }
         }
+
+        public static string[] SearchGuests()
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var arr = db.Guests
+                    .Where(x => !x.IsAdmin)
+                    .Select(x => new 
+                    {
+                        Id = x.Guest_Id, 
+                        Name = x.Name,
+                        Surname = x.Surname,
+                        Email = x.Email,
+                        Login = x.Login,
+                        Password = x.Password
+                    }).ToArray();
+
+                var output = new string[arr.Length];
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    output[i] = "Id: " + Convert.ToString(arr[i].Id) + "\n"
+                        + "Imie: " + arr[i].Name + "\n"
+                        + "Nazwisko: " + arr[i].Surname + "\n"
+                        + "Email: " + arr[i].Email + "\n"
+                        + "Login: " + arr[i].Login + "\n"
+                        + "Hasło: " + arr[i].Password + "\n";
+                }
+                return output;
+            }
+        }
     }
 }
