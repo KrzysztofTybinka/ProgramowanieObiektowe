@@ -54,3 +54,6 @@ CREATE TABLE Reservations (
 
 ALTER TABLE ToReserve
 ADD CONSTRAINT Field_Date_Unique UNIQUE (Field, Date)
+
+ALTER TABLE Fields
+ADD CONSTRAINT Name_Category_Unique UNIQUE ([Name], Category)

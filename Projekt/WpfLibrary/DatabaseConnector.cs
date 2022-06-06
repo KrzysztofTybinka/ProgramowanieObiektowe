@@ -137,7 +137,7 @@ namespace Projekt
         /// <summary>
         /// Selects for all items in Categories table.
         /// </summary>
-        /// <returns>Array of strings containing all categories.</returns>
+        /// <returns>Array of strings containing all Categories rows.</returns>
         public static string?[] SearchCategories()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -191,7 +191,7 @@ namespace Projekt
         /// <summary>
         /// Selects for all items in Fields table.
         /// </summary>
-        /// <returns>Array of strings containing all Fields.</returns>
+        /// <returns>Array of strings containing all Fields rows.</returns>
         public static string[] SearchFields()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -209,6 +209,11 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Adds field to Fields table.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Returns true if field added succesfully, otherwise false.</returns>
         public static bool AddField(Fields field)
         {
             if (field is null)
@@ -228,6 +233,11 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Deletes record with given id from Field table.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>True if item deleted, otherwise false.</returns>
         public static bool DeleteField(int id)
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -241,6 +251,10 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Selects for all items in ToReserve table.
+        /// </summary>
+        /// <returns>Array of strings containing all ToReserve rows.</returns>
         public static string[] SearchToReserve()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -262,6 +276,11 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Adds record to ToReserve table.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Returns true if record added succesfully, otherwise false.</returns>
         public static bool AddToReserve(ToReserve toReserve)
         {
             if (toReserve is null)
@@ -281,6 +300,11 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Deletes record with given id from ToReserve table.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>True if item deleted, otherwise false.</returns>
         public static bool DeleteToReserve(int id)
         {
             using (BloggingContext db = new BloggingContext(conString))

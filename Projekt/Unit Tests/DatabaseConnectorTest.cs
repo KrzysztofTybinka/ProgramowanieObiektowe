@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
 
 namespace Projekt.Test
@@ -194,19 +195,82 @@ namespace Projekt.Test
         [TestMethod]
         public void AddField_Returns_False_For_Too_Long_Input()
         {
-            bool b = DatabaseConnector.AddField("sssssssssssssssssssssssssssss");
+            bool b = DatabaseConnector.AddField(new Fields { Name = "sssssssssssssssssssssssssssssss", Category = "Boisko do koszykówki"});
             Assert.IsFalse(b);
         }
 
         [TestMethod]
-        public void AddCategory_Adds_Category()
+        public void AddField_Returns_False_If_Category_Doesnt_Exist()
         {
-            string category = "testowa kategoria";
-            bool b = DatabaseConnector.AddCategory(category);
-            var arr = DatabaseConnector.SearchCategories();
-            Assert.IsTrue(b);
-            Assert.IsTrue(arr.Contains(category));
-            DatabaseConnector.DeleteCategory(category);
+            bool b = DatabaseConnector.AddField(new Fields { Name = "test", Category = "abcd" });
+            Assert.IsFalse(b);
+        }
+
+        [TestMethod]
+        public void AddField_Returns_False_For_Inserting_Twice_Same_Field()
+        {
+            Assert.IsFalse(DatabaseConnector.AddField(new Fields { Name = "Koszykówka #1", Category = "Boisko do koszykówki" }));
+        }
+
+        [TestMethod]
+        public void DeleteField_Deletes_Field()
+        {
+            DatabaseConnector.AddField(new Fields { Name = "test", Category = "Boisko do koszykówki"});
+            var f = DatabaseConnector.SearchFields();
+            int id = 0;
+            for (int i = 0; i < f.Length; i++)
+            {
+                if (f[i].Contains("test"))
+                {
+                    var arr = f[i].Split('\n', ' ');
+                    id = Convert.ToInt32(arr[1]);
+                }
+            }
+            Assert.IsTrue(DatabaseConnector.DeleteField(id));
+        }
+
+        [TestMethod]
+        public void SearchToReserve_Returns_Array_Of_ToReserve()
+        {
+            var arr = DatabaseConnector.SearchToReserve();
+            Assert.IsTrue(arr.Contains("Id: 2\nNazwa: Koszykówka #1\nData: 07.05.2022\n"));
+        }
+
+        [TestMethod]
+        public void AddToReserve_Returns_False_For_Null_Input()
+        {
+            bool b = DatabaseConnector.AddToReserve(null);
+            Assert.IsFalse(b);
+        }
+
+        [TestMethod]
+        public void AddToReserve_Returns_False_If_Category_Doesnt_Exist()
+        {
+            bool b = DatabaseConnector.AddToReserve(new ToReserve { Field = 999, Date = new DateTime(2022, 05, 07, 00, 00, 00) });
+            Assert.IsFalse(b);
+        }
+
+        [TestMethod]
+        public void AddToReserve_Returns_False_For_Inserting_Twice_Same_ToReserve()
+        {
+            Assert.IsFalse(DatabaseConnector.AddToReserve(new ToReserve { Field = 3, Date = new DateTime(2022, 05, 07, 00,00,00)}));
+        }
+
+        [TestMethod]
+        public void DeleteToReserve_Deletes_ToReserve()
+        {
+            DatabaseConnector.AddToReserve(new ToReserve { Field = 3, Date = new DateTime(2022, 09, 12, 00, 00, 00) });
+            var f = DatabaseConnector.SearchToReserve();
+            int id = 0;
+            for (int i = 0; i < f.Length; i++)
+            {
+                if (f[i].Contains("12.09.2022"))
+                {
+                    var arr = f[i].Split('\n', ' ');
+                    id = Convert.ToInt32(arr[1]);
+                }
+            }
+            Assert.IsTrue(DatabaseConnector.DeleteToReserve(id));
         }
 
 

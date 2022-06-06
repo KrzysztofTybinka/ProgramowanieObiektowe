@@ -62,7 +62,8 @@ namespace Projekt
             if (MessageBoxes.RemoveFieldBox())
             {
                 string s = (string)roomsList.SelectedItem;
-                DatabaseConnector.DeleteField(Convert.ToInt32(Convert.ToString(s[4])));
+                var arr = s.Split('\n', ' ');
+                DatabaseConnector.DeleteField(Convert.ToInt32(arr[1]));
                 Update();
             }
         }
@@ -79,8 +80,9 @@ namespace Projekt
                 return;
             if (MessageBoxes.RemoveToReserveBox())
             {
-                string s = (string)bookList.SelectedItem;
-                DatabaseConnector.DeleteToReserve(Convert.ToInt32(Convert.ToString(s[4])));
+                string s = (string)roomsList.SelectedItem;
+                var arr = s.Split('\n', ' ');
+                DatabaseConnector.DeleteToReserve(Convert.ToInt32(arr[1]));
                 Update();
             }
         }
