@@ -24,5 +24,25 @@ namespace Projekt
         {
             InitializeComponent();
         }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void myProfile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void book_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
