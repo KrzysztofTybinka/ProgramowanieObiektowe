@@ -9,6 +9,24 @@
       Title="GuestsList">
 
     <Grid Background="White">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="317*"/>
+            <RowDefinition Height="86*"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Wstecz" Margin="8" Background="#FFB3E5F1" x:Name="back" Click="back_Click"/>
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" Margin="50,20,20,20">
+            <Button Content=" Pobierz listę użytkowników " Background="#FFB3E5F1" x:Name="usersToXml" Click="usersToXml_Click"/>
+            <Label Content="     "/>
+            <Button Content="   Usuń użytkownika   " Background="#FFB3E5F1" x:Name="deleteUser" Click="deleteUser_Click"/>
+        </StackPanel>
+
     </Grid>
 </Page>

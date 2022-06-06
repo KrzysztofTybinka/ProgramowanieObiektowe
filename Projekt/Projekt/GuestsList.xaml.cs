@@ -24,5 +24,20 @@ namespace Projekt
         {
             InitializeComponent();
         }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void usersToXml_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void deleteUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -42,7 +42,8 @@ namespace Projekt
 
         private void GuestList_Click(object sender, RoutedEventArgs e)
         {
-
+            GuestsList g = new GuestsList();
+            this.NavigationService.Navigate(g);
         }
 
         private void deleteReservation_Click(object sender, RoutedEventArgs e)
