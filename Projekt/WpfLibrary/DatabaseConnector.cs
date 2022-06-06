@@ -318,6 +318,19 @@ namespace Projekt
             }
         }
 
+        public static void UpdateToReserve()
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                foreach (var item in db.ToReserve)
+                {
+                    if (item.Date < DateTime.Now)
+                        db.ToReserve.Remove(item);
+                }
+                db.SaveChanges();
+            }
+        }
+
         public static string[] SearchGuests()
         {
             using (BloggingContext db = new BloggingContext(conString))

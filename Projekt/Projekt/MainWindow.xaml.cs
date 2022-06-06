@@ -26,6 +26,7 @@ namespace Projekt
         public MainWindow()
         {
             InitializeComponent();
+            DatabaseConnector.UpdateToReserve();
             var p = new StartingPage();
             Main.NavigationService.Navigate(p);
         }
