@@ -260,9 +260,15 @@ namespace Projekt
             using (BloggingContext db = new BloggingContext(conString))
             {
                 var arr = (from toReserve in db.ToReserve
-                                join field in db.Fields on toReserve.Field equals field.Field_Id
-                                where toReserve.Field == field.Field_Id
-                                select new {Id = toReserve.ToReserve_Id, Field = field.Name, Date = toReserve.Date.ToShortDateString()}).ToArray();
+                           where !db.Reservations.Any(x => x.ToReserve == toReserve.ToReserve_Id)
+                           join field in db.Fields on toReserve.Field equals field.Field_Id
+                           where toReserve.Field == field.Field_Id
+                           select new
+                           {
+                               Id = toReserve.ToReserve_Id,
+                               Field = field.Category,
+                               Date = toReserve.Date.ToShortDateString()
+                           }).ToArray();
 
                 var output = new string[arr.Length];
 
@@ -309,7 +315,8 @@ namespace Projekt
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                var f = db.ToReserve.Where(x => x.ToReserve_Id == id).FirstOrDefault();
+                var f = db.ToReserve.Where(x => x.ToReserve_Id == id)
+                    .FirstOrDefault();
                 if (f is null)
                     return false;
                 db.ToReserve.Remove(f);
@@ -423,6 +430,7 @@ namespace Projekt
                     
             }
         }
+
             
     }
 }

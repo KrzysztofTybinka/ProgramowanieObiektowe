@@ -23,11 +23,16 @@ namespace Projekt
         public GuestStartingPage()
         {
             InitializeComponent();
+            list.ItemsSource = DatabaseConnector.SearchToReserve();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBoxes.LogOutBox())
+            {
+                StartingPage s = new StartingPage();
+                this.NavigationService.Navigate(s);
+            }
         }
 
         private void myProfile_Click(object sender, RoutedEventArgs e)
@@ -37,7 +42,7 @@ namespace Projekt
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
-
+            list.ItemsSource = DatabaseConnector.SearchToReserve().Where(x => x.Contains(box.Text)); 
         }
 
         private void book_Click(object sender, RoutedEventArgs e)

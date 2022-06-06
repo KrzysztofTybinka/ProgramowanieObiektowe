@@ -22,11 +22,12 @@
         <Button Background="#FFB3E5F1" Content="Wyloguj" Margin="40, 10, 40, 10" x:Name="Logout" Click="Logout_Click"/>
         <Button Background="#FFB3E5F1" Content="Mój profil" Grid.Column="2" Margin="40, 10, 40, 10" x:Name="myProfile" Click="myProfile_Click"/>
         <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5">
-            <TextBox Width="200" FontSize="15" VerticalContentAlignment="Center"/>
+            <Label Content="Szukaj:" VerticalAlignment="Center"/>
+            <TextBox Width="200" FontSize="15" VerticalContentAlignment="Center" x:Name="box"/>
             <Label/>
-            <Button Background="#FFB3E5F1" Content="   Szukaj   " x:Name="search" Click="search_Click"/>
+            <Button Background="#FFB3E5F1" Content=" Szukaj " x:Name="search" Click="search_Click"/>
             <Label/>
-            <Button Background="#FFB3E5F1" Content="  Rezerwuj  " x:Name="book" Click="book_Click"/>
+            <Button Background="#FFB3E5F1" Content=" Rezerwuj " x:Name="book" Click="book_Click"/>
         </StackPanel>
         <ListBox Grid.Row="1" Grid.Column="1" x:Name="list"/>
     </Grid>
