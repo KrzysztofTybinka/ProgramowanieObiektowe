@@ -15,17 +15,17 @@
             <ColumnDefinition Width="114*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="191*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="287*"/>
+            <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Visible"></ScrollViewer>
-        <Button Content="Wyloguj" Background="#FFB3E5F1" Margin="10" x:Name="logout" Click="logout_Click"/>
-        <StackPanel Grid.Column="1" Orientation="Horizontal">
-            <Label Content="Szukaj:" VerticalAlignment="Center"/>
-            <TextBox Width="200" Height="40" x:Name="SearchBox"/>
-            <Button Content="Szukaj" Margin="5,14,5,14" Width="80" Background="#FFB3E5F1" x:Name="Search" Click="Search_Click"/>
-            <Button Content="Dodaj rezerwacje" Margin="5,14,5,14" Width="110" Background="#FFB3E5F1" x:Name="AddReservation" Click="AddReservation_Click"/>
-        </StackPanel>
-        <Button Content="Lista użytkowników" Margin="60,14,50,14" Grid.Column="2" Background="#FFB3E5F1" x:Name="GuestList" Click="GuestList_Click"/>
+
+        <Button Content="Wyloguj" Background="#FFB3E5F1" Margin="8,8,8,8" x:Name="logout" Click="logout_Click"/>
+        <Button Content="Lista użytkowników" Margin="40,5,40,5" Grid.Column="2" Background="#FFB3E5F1" x:Name="GuestList" Click="GuestList_Click"/>
+        <Button Content="Terminy" Margin="40,5,40,5" Grid.Column="2" Grid.Row="1" Background="#FFB3E5F1" x:Name="AddReservation" Click="AddReservation_Click"/>
+        <Button Content="Usuń rezerwacje" Grid.Column="1" Grid.Row="3" Background="#FFB3E5F1" Margin="10, 5, 300, 5"/>
+        <Label Grid.Column="1" Content="Lista rezerwacji:" FontSize="25" VerticalAlignment="Center"/>
+        <ListBox Grid.Row="1" Grid.Column="1" x:Name="reservationList" Grid.RowSpan="2"/>
     </Grid>
 </Page>
