@@ -23,6 +23,7 @@ namespace Projekt
         public AdminStartingPage()
         {
             InitializeComponent();
+            reservationList.ItemsSource = DatabaseConnector.SearchReservations();
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)
@@ -48,7 +49,13 @@ namespace Projekt
 
         private void deleteReservation_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBoxes.DeleteReservationBox())
+            {
+                string s = (string)reservationList.SelectedItem;
+                var arr = s.Split('\n', ' ');
+                DatabaseConnector.DeleteReservation(Convert.ToInt32(arr[2]), Convert.ToInt32(arr[5]));
+                reservationList.ItemsSource = DatabaseConnector.SearchReservations();
+            }
         }
     }
 }

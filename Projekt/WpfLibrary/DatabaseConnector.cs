@@ -356,6 +356,60 @@ namespace Projekt
                 return db.Guests.Where(x => !x.IsAdmin).ToArray();
             }
         }
+
+        public static string[] SearchReservations()
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                var arr = (from reservations in db.Reservations
+                           join guests in db.Guests on reservations.Guest equals guests.Guest_Id
+                           where reservations.Guest == guests.Guest_Id
+                           join toReserve in db.ToReserve on reservations.ToReserve equals toReserve.ToReserve_Id                           
+                           where reservations.ToReserve == toReserve.ToReserve_Id
+                           join field in db.Fields on toReserve.Field equals field.Field_Id
+                           where toReserve.Field == field.Field_Id
+                           select new 
+                           {
+                               Guest_Id = reservations.Guest,
+                               Reservation_No = toReserve.ToReserve_Id,
+                               Date = toReserve.Date,
+                               Field_Name = field.Name,
+                               Name = guests.Name,
+                               Surname = guests.Surname,
+                               Email = guests.Email,
+                           }).ToArray();
+
+                var output = new string[arr.Length];
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    output[i] = "Id osoby: " + Convert.ToString(arr[i].Guest_Id) + "\n"
+                        + "Id rezerwacji: " + arr[i].Reservation_No + "\n"
+                        + "Data: " + arr[i].Date + "\n"
+                        + "Pomieszczenie: " + arr[i].Field_Name + "\n"
+                        + "Imie: " + arr[i].Name + "\n"
+                        + "Nazwisko: " + arr[i].Surname + "\n"
+                        + "Email: " + arr[i].Email + "\n";
+                }
+                return output;
+            }
+        }
+
+        public static bool DeleteReservation(int guestId, int reservationId)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                Reservations g = db.Reservations
+                    .Where(x => x.Guest == guestId && x.ToReserve == reservationId)
+                    .First();
+                if (g is null)
+                    return false;
+                db.Reservations.Remove(g);
+                db.SaveChanges();
+                return true;
+                    
+            }
+        }
             
     }
 }
