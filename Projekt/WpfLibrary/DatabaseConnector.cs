@@ -348,5 +348,14 @@ namespace Projekt
                 return output;
             }
         }
+
+        public static Guests[] GuestsList()
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                return db.Guests.Where(x => !x.IsAdmin).ToArray();
+            }
+        }
+            
     }
 }

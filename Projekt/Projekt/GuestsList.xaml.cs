@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +36,12 @@ namespace Projekt
 
         private void usersToXml_Click(object sender, RoutedEventArgs e)
         {
-
+            SaveFileDialog dlg = new SaveFileDialog();
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                MyFileWriter.GuestsToXml(DatabaseConnector.GuestsList(), dlg.FileName);
+            }
         }
 
         private void deleteUser_Click(object sender, RoutedEventArgs e)
