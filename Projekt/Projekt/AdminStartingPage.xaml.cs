@@ -34,11 +34,6 @@ namespace Projekt
             }
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void AddReservation_Click(object sender, RoutedEventArgs e)
         {
             AddReservation a = new AddReservation();
@@ -50,5 +45,9 @@ namespace Projekt
 
         }
 
+        private void deleteReservation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

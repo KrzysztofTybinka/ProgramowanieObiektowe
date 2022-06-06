@@ -24,7 +24,7 @@
         <Button Content="Wyloguj" Background="#FFB3E5F1" Margin="8,8,8,8" x:Name="logout" Click="logout_Click"/>
         <Button Content="Lista użytkowników" Margin="40,5,40,5" Grid.Column="2" Background="#FFB3E5F1" x:Name="GuestList" Click="GuestList_Click"/>
         <Button Content="Terminy" Margin="40,5,40,5" Grid.Column="2" Grid.Row="1" Background="#FFB3E5F1" x:Name="AddReservation" Click="AddReservation_Click"/>
-        <Button Content="Usuń rezerwacje" Grid.Column="1" Grid.Row="3" Background="#FFB3E5F1" Margin="10, 5, 300, 5"/>
+        <Button Content="Usuń rezerwacje" Grid.Column="1" Grid.Row="3" Background="#FFB3E5F1" Margin="10, 5, 300, 5" x:Name="deleteReservation" Click="deleteReservation_Click"/>
         <Label Grid.Column="1" Content="Lista rezerwacji:" FontSize="25" VerticalAlignment="Center"/>
         <ListBox Grid.Row="1" Grid.Column="1" x:Name="reservationList" Grid.RowSpan="2"/>
     </Grid>
