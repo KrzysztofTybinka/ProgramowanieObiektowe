@@ -9,7 +9,9 @@ namespace Projekt
     public static class LoggedGuest
     {
         private static Guests? guest;
+        private static string[]? reservations;
 
+        public static string[]? Reservations { get { return reservations; } }
         public static Guests? Guest { get { return guest; } }
 
         /// <summary>
@@ -25,6 +27,7 @@ namespace Projekt
             if (g == null || !g.Password.Equals(password))
                 return false;
             guest = g;
+            SearchReservations();
             return true;
         }
 
@@ -35,5 +38,29 @@ namespace Projekt
         {
             guest = null;
         }
+
+        public static void SearchReservations()
+        {
+            var arr = DatabaseConnector.SearchReservations();
+            var list = new List<string>();
+
+            foreach (var reservation in arr)
+            {
+                var s = reservation.Split(' ', '\n');
+                if (Convert.ToInt32(s[2]) == guest!.Guest_Id)
+                {
+                    list.Add(reservation);
+                }
+            }
+            reservations = list.ToArray();
+        }
+
+        public static string GuestInfo()
+        {
+            return "Imie: " + guest!.Name + "\n"
+                + "Nazwisko: " + guest.Surname + "\n"
+                + "Email: " + guest.Email + "\n";               
+        }
+
     }
 }

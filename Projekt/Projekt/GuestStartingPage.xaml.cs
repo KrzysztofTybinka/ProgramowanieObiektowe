@@ -55,6 +55,7 @@ namespace Projekt
                 if (!DatabaseConnector.AddReservation(LoggedGuest.Guest.Guest_Id, Convert.ToInt32(a[1])))
                     MessageBox.Show("Coś poszło nie tak");
                 list.ItemsSource = DatabaseConnector.SearchToReserve();
+                LoggedGuest.SearchReservations();
             }
         }
     }

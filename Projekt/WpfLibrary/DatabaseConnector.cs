@@ -405,7 +405,7 @@ namespace Projekt
                 {
                     output[i] = "Id osoby: " + Convert.ToString(arr[i].Guest_Id) + "\n"
                         + "Id rezerwacji: " + arr[i].Reservation_No + "\n"
-                        + "Data: " + arr[i].Date + "\n"
+                        + "Data: " + arr[i].Date.ToShortDateString() + "\n"
                         + "Pomieszczenie: " + arr[i].Field_Name + "\n"
                         + "Imie: " + arr[i].Name + "\n"
                         + "Nazwisko: " + arr[i].Surname + "\n"
