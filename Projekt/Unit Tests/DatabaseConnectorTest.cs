@@ -230,13 +230,6 @@ namespace Projekt.Test
         }
 
         [TestMethod]
-        public void SearchToReserve_Returns_Array_Of_ToReserve()
-        {
-            var arr = DatabaseConnector.SearchToReserve();
-            Assert.IsTrue(arr.Contains("Id: 2\nNazwa: Koszykówka #1\nData: 07.05.2022\n"));
-        }
-
-        [TestMethod]
         public void AddToReserve_Returns_False_For_Null_Input()
         {
             bool b = DatabaseConnector.AddToReserve(null);
@@ -253,6 +246,7 @@ namespace Projekt.Test
         [TestMethod]
         public void AddToReserve_Returns_False_For_Inserting_Twice_Same_ToReserve()
         {
+            DatabaseConnector.AddToReserve(new ToReserve { Field = 3, Date = new DateTime(2022, 05, 07, 00, 00, 00) });
             Assert.IsFalse(DatabaseConnector.AddToReserve(new ToReserve { Field = 3, Date = new DateTime(2022, 05, 07, 00,00,00)}));
         }
 
@@ -273,6 +267,61 @@ namespace Projekt.Test
             Assert.IsTrue(DatabaseConnector.DeleteToReserve(id));
         }
 
+        [TestMethod]
+        public void UpdateToReserve_Deletes_Expired_ToReserve_Fields()
+        {
+            var s = new ToReserve { Date = new DateTime(2022, 05, 05, 00, 00, 00, 00), Field = 3 };
+            DatabaseConnector.AddToReserve(s);
+            DatabaseConnector.UpdateToReserve();
+            var arr = DatabaseConnector.SearchToReserve();
+            Assert.IsFalse(arr.Contains("Koszykówka #1\nData: 05.05.2022\n"));
+
+        }
+
+        [TestMethod]
+        public void SearchGuests_Returns_Guest_Array()
+        {
+            var arr = DatabaseConnector.SearchGuests();
+            foreach (var item in arr)
+            {
+                if (item.Contains("Test"))
+                    Assert.IsTrue(true);
+            }
+        }
+
+        [TestMethod]
+        public void GuestList_Returns_Guest_List()
+        {
+            var g = DatabaseConnector.GuestsList();
+            foreach (var item in g)
+            {
+                if (item.Name.Equals("Test"))
+                    Assert.IsTrue(true);
+            }
+        }
+
+        [TestMethod]
+        public void SearchReservations_Returns_Reservations_Array()
+        {
+            var arr = DatabaseConnector.SearchReservations();
+            foreach (var item in arr)
+            {
+                if (item.Contains("Id osoby"))
+                    Assert.IsTrue(true);
+            }
+        }
+
+        [TestMethod]
+        public void DeleteReservation_returns_False_For_Not_Existing_Reservation()
+        {
+            Assert.IsFalse(DatabaseConnector.DeleteReservation(5, 9));
+        }
+
+        [TestMethod]
+        public void AddReservation_Returns_False_For_Invalid_Data()
+        {
+            Assert.IsFalse(DatabaseConnector.AddReservation(555, 9999));
+        }
 
     }
 }

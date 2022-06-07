@@ -325,6 +325,9 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Updates ToReserve table data.
+        /// </summary>
         public static void UpdateToReserve()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -338,6 +341,10 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Selects for Guests table and maps it to string array.
+        /// </summary>
+        /// <returns>String array of guests.</returns>
         public static string[] SearchGuests()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -369,6 +376,10 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Selects for Guests table and maps it to Guest array.
+        /// </summary>
+        /// <returns>Guest array.</returns>
         public static Guests[] GuestsList()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -377,6 +388,10 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Selects for Reservation table and maps it to string array.
+        /// </summary>
+        /// <returns>String array of Reservations.</returns>
         public static string[] SearchReservations()
         {
             using (BloggingContext db = new BloggingContext(conString))
@@ -415,22 +430,40 @@ namespace Projekt
             }
         }
 
+        /// <summary>
+        /// Tries to delete a row from Reservation table.
+        /// </summary>
+        /// <param name="guestId"></param>
+        /// <param name="reservationId"></param>
+        /// <returns>True if reservation deleted succesfully, otherwise false.</returns>
         public static bool DeleteReservation(int guestId, int reservationId)
         {
             using (BloggingContext db = new BloggingContext(conString))
             {
-                Reservations g = db.Reservations
-                    .Where(x => x.Guest == guestId && x.ToReserve == reservationId)
-                    .First();
-                if (g is null)
+                try
+                {
+                    Reservations g = db.Reservations
+                        .Where(x => x.Guest == guestId && x.ToReserve == reservationId)
+                        .First();
+                    if (g is null)
+                        return false;
+                    db.Reservations.Remove(g);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
                     return false;
-                db.Reservations.Remove(g);
-                db.SaveChanges();
-                return true;
-                    
+                }                 
             }
         }
 
+        /// <summary>
+        /// Tries to insert data into Reservation table.
+        /// </summary>
+        /// <param name="guestId"></param>
+        /// <param name="toReserveId"></param>
+        /// <returns>True if data inserted succesfully, otherwise false.</returns>
         public static bool AddReservation(int guestId, int toReserveId)
         {
             using (BloggingContext db = new BloggingContext(conString))
