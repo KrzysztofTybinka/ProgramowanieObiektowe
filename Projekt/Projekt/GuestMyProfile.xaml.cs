@@ -34,7 +34,8 @@ namespace Projekt
 
         private void changePass_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangePassword c = new ChangePassword();
+            c.Show();
         }
 
         private void cancelReservation_Click(object sender, RoutedEventArgs e)

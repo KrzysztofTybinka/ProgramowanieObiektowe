@@ -22,6 +22,9 @@
     <Compile Update="AdminStartingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ChangePassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EmailConfirm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminStartingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangePassword.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EmailConfirm.xaml">
