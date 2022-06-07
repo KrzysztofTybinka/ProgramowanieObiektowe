@@ -39,6 +39,9 @@ namespace Projekt
             guest = null;
         }
 
+        /// <summary>
+        /// Initializes currently logged Guest Reservations string array.
+        /// </summary>
         public static void SearchReservations()
         {
             var arr = DatabaseConnector.SearchReservations();
@@ -55,6 +58,11 @@ namespace Projekt
             reservations = list.ToArray();
         }
 
+        /// <summary>
+        /// Returns a string containing basic information
+        /// about currently logged guest.
+        /// </summary>
+        /// <returns>String containing information about logged guest.</returns>
         public static string GuestInfo()
         {
             return "Imie: " + guest!.Name + "\n"
