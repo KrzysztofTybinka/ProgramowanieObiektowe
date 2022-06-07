@@ -431,6 +431,28 @@ namespace Projekt
             }
         }
 
+        public static bool AddReservation(int guestId, int toReserveId)
+        {
+            using (BloggingContext db = new BloggingContext(conString))
+            {
+                try
+                {
+                    db.Reservations
+                        .Add(new Reservations
+                        {
+                            Guest = guestId,
+                            ToReserve = toReserveId
+                        });
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    return false;
+                }
+                return true;
+            }
+        }
             
     }
 }

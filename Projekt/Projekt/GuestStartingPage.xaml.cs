@@ -37,7 +37,8 @@ namespace Projekt
 
         private void myProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            GuestMyProfile g = new GuestMyProfile();
+            this.NavigationService.Navigate(g);
         }
 
         private void search_Click(object sender, RoutedEventArgs e)
@@ -47,7 +48,14 @@ namespace Projekt
 
         private void book_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBoxes.Book())
+            {
+                var s = (string)list.SelectedItem;
+                var a = s.Split('\n', ' ');
+                if (!DatabaseConnector.AddReservation(LoggedGuest.Guest.Guest_Id, Convert.ToInt32(a[1])))
+                    MessageBox.Show("Coś poszło nie tak");
+                list.ItemsSource = DatabaseConnector.SearchToReserve();
+            }
         }
     }
 }

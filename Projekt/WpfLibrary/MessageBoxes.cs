@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -71,6 +71,17 @@ namespace Projekt
         public static bool DeleteReservationBox()
         {
             if (MessageBox.Show("Czy na pewno chcesz usunąć rezerwacje?", "Usuń rezerwacje", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                return false;
+            return true;
+        }
+
+        /// <summary>
+        /// Pops a yes/no window.
+        /// </summary>
+        /// <returns>True if 'yes' button pressed, otherwise false.</returns>
+        public static bool Book()
+        {
+            if (MessageBox.Show("Czy chcesz dokonać rezerwacji?", "Rezerwuj", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
                 return false;
             return true;
         }
