@@ -19,7 +19,7 @@ blokowana jest możliwość rezerwacji do ponownego aktywowania karnetu.
     1. Pole do wprowadzenia adresu e-mail.
     2. Przycisk 'send'.
 #### 4. Okno uzytkownika
-## a. Główne okno użytkownika
+##### a. Główne okno użytkownika
     1. Przycisk wyloguj wyświetlający message box 
     z zapytaniem "Czy na pewno chcesz się wylogować?".
     2. Przycisk "Mój profil" przenoszący użytkownika do okna profilu.
@@ -27,27 +27,27 @@ blokowana jest możliwość rezerwacji do ponownego aktywowania karnetu.
     4. Textbox umożliwiający filtrowanie terminów przez wpisywanie odpowiednich fraz kluczowych.
     5. Przycisk szukaj szukający wpisanej frazy w liście terminów.
     6. Przycisk "rezerwuj" umożliwiajacy zarezerwowanie zaznaczonego na liście terminu.
-## b. Okno mój profil
+##### b. Okno mój profil
     1. Przycisk "wstecz" przenoszący do głównego okna użytkownika.
     2. Przycisk zmień hasło wyświetlajacy nowe okno z formularzem zmiany hasła.
     3. Tabela z danymi użytkownika.
     4. tabela z listą rezerwacji użytkownika.
     5. Przycisk "odwołaj rezerwacje" umożliwiający odwołanie zaznaczonej rezerwacji.   
 #### 5. Okno administratora
-## a. Główne okno administratora
+##### a. Główne okno administratora
     1. Przycisk wyloguj wyświetlający message box 
     z zapytaniem "Czy na pewno chcesz się wylogować?". 
     2. Lista reezerwacji.
     3. Przycisk "Usuń rezerwację" umożliwiający usunięcie zaznaczonej rezerwacji.
     4. Przycisk "Lista użytkowników" przenoszący do okna z listą użytkowników.
     5. Przycisk "Terminy" przenoszący do okna z lista terminów.
-## b. Okno lista użytkowników
+##### b. Okno lista użytkowników
     1. Przycisk "wstecz" przenoszący do głównego okna administratora.
     2. Przycisk "Pobierz listę użytkowników" wyświetlajacy okno
     dialogowe zapisu pliku, który po wybraniu lokalizacji serializuje
     dane o użytkownikach do pliku XML.
     3. Przycisk "Usuń użytkownika" usuwajacy zaznaczonego użytkownika.
-## c. Okno terminy
+##### c. Okno terminy
     1. Przycisk "wstecz" przenoszący do głównego okna administratora.
     2. Lista kategorii.
     3. Przycisk "dodaj kategorię" dodający kategorie.
